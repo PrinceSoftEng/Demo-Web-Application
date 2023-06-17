@@ -1,0 +1,252 @@
+﻿<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{15E59520-F902-4FE9-9363-F7082FD88F8B}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Web_Application_Registration</RootNamespace>
+    <AssemblyName>Web_Application_Registration</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort>44369</IISExpressSSLPort>
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
+      <HintPath>packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="AboutUs.aspx" />
+    <Content Include="Bootstrap\cdnjs.cloudflare.com_ajax_libs_bootstrap_5.3.0_css_bootstrap-grid.min.css" />
+    <Content Include="Bootstrap\cdnjs.cloudflare.com_ajax_libs_bootstrap_5.3.0_css_bootstrap-grid.rtl.min.css" />
+    <Content Include="Bootstrap\cdnjs.cloudflare.com_ajax_libs_bootstrap_5.3.0_css_bootstrap-reboot.min.css" />
+    <Content Include="Bootstrap\cdnjs.cloudflare.com_ajax_libs_bootstrap_5.3.0_css_bootstrap-reboot.rtl.min.css" />
+    <Content Include="Bootstrap\cdnjs.cloudflare.com_ajax_libs_bootstrap_5.3.0_css_bootstrap-utilities.min.css" />
+    <Content Include="Bootstrap\cdnjs.cloudflare.com_ajax_libs_bootstrap_5.3.0_css_bootstrap-utilities.rtl.min.css" />
+    <Content Include="Bootstrap\cdnjs.cloudflare.com_ajax_libs_bootstrap_5.3.0_css_bootstrap.min.css" />
+    <Content Include="Bootstrap\cdnjs.cloudflare.com_ajax_libs_bootstrap_5.3.0_css_bootstrap.rtl.min.css" />
+    <Content Include="Bootstrap\cdnjs.cloudflare.com_ajax_libs_bootstrap_5.3.0_js_bootstrap.bundle.min.js" />
+    <Content Include="Bootstrap\cdnjs.cloudflare.com_ajax_libs_bootstrap_5.3.0_js_bootstrap.esm.min.js" />
+    <Content Include="Bootstrap\cdnjs.cloudflare.com_ajax_libs_bootstrap_5.3.0_js_bootstrap.min.js" />
+    <Content Include="CarsList.aspx" />
+    <Content Include="ContactUs.aspx" />
+    <Content Include="Css\cdnjs.cloudflare.com_ajax_libs_animate.css_4.1.1_animate.compat.css" />
+    <Content Include="Css\cdnjs.cloudflare.com_ajax_libs_animate.css_4.1.1_animate.compat.min.css" />
+    <Content Include="Css\cdnjs.cloudflare.com_ajax_libs_animate.css_4.1.1_animate.css" />
+    <Content Include="Css\cdnjs.cloudflare.com_ajax_libs_animate.css_4.1.1_animate.min.css" />
+    <Content Include="Css\cdnjs.cloudflare.com_ajax_libs_font-awesome_6.4.0_css_all.min.css" />
+    <Content Include="Css\cdnjs.cloudflare.com_ajax_libs_font-awesome_6.4.0_css_brands.min.css" />
+    <Content Include="Css\cdnjs.cloudflare.com_ajax_libs_font-awesome_6.4.0_css_fontawesome.min.css" />
+    <Content Include="Css\cdnjs.cloudflare.com_ajax_libs_font-awesome_6.4.0_css_regular.min.css" />
+    <Content Include="Css\cdnjs.cloudflare.com_ajax_libs_font-awesome_6.4.0_css_solid.min.css" />
+    <Content Include="Css\cdnjs.cloudflare.com_ajax_libs_font-awesome_6.4.0_css_svg-with-js.min.css" />
+    <Content Include="Css\cdnjs.cloudflare.com_ajax_libs_font-awesome_6.4.0_css_v4-font-face.min.css" />
+    <Content Include="Css\cdnjs.cloudflare.com_ajax_libs_font-awesome_6.4.0_css_v4-shims.min.css" />
+    <Content Include="Css\cdnjs.cloudflare.com_ajax_libs_font-awesome_6.4.0_css_v5-font-face.min.css" />
+    <Content Include="Css\CustomSheet.css" />
+    <Content Include="Css\RegisNLogin.css" />
+    <Content Include="Css\Supercar.jpg" />
+    <Content Include="Home.aspx" />
+    <Content Include="Images\car3.jpg" />
+    <Content Include="Images\Car4.jpg" />
+    <Content Include="Images\Cars.jpg" />
+    <Content Include="Images\Cars2.jpg" />
+    <Content Include="Images\Cars6.jpg" />
+    <Content Include="Images\cars7.jpg" />
+    <Content Include="Images\Cars8.jpg" />
+    <Content Include="Images\Cras5.png" />
+    <Content Include="Images\Supercar.jpg" />
+    <Content Include="Img\CarSell.jpg" />
+    <Content Include="Jquery\cdnjs.cloudflare.com_ajax_libs_font-awesome_6.4.0_js_conflict-detection.min.js" />
+    <Content Include="Jquery\cdnjs.cloudflare.com_ajax_libs_font-awesome_6.4.0_js_fontawesome.min.js" />
+    <Content Include="Jquery\cdnjs.cloudflare.com_ajax_libs_font-awesome_6.4.0_js_regular.min.js" />
+    <Content Include="Jquery\cdnjs.cloudflare.com_ajax_libs_font-awesome_6.4.0_js_solid.min.js" />
+    <Content Include="Jquery\cdnjs.cloudflare.com_ajax_libs_font-awesome_6.4.0_js_v4-shims.min.js" />
+    <Content Include="Jquery\cdnjs.cloudflare.com_ajax_libs_jquery_3.7.0_jquery.js" />
+    <Content Include="Jquery\cdnjs.cloudflare.com_ajax_libs_jquery_3.7.0_jquery.min.js" />
+    <Content Include="Jquery\cdnjs.cloudflare.com_ajax_libs_jquery_3.7.0_jquery.slim.js" />
+    <Content Include="Jquery\cdnjs.cloudflare.com_ajax_libs_jquery_3.7.0_jquery.slim.min.js" />
+    <Content Include="Login.aspx" />
+    <Content Include="Registration.aspx" />
+    <Content Include="Services.aspx" />
+    <Content Include="TermsNCondition.aspx" />
+    <Content Include="Viewcars.aspx" />
+    <Content Include="Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AboutUs.aspx.cs">
+      <DependentUpon>AboutUs.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AboutUs.aspx.designer.cs">
+      <DependentUpon>AboutUs.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CarsList.aspx.cs">
+      <DependentUpon>CarsList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CarsList.aspx.designer.cs">
+      <DependentUpon>CarsList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ContactUs.aspx.cs">
+      <DependentUpon>ContactUs.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ContactUs.aspx.designer.cs">
+      <DependentUpon>ContactUs.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\clsDal.cs" />
+    <Compile Include="BAL\clsBal.cs" />
+    <Compile Include="Model\clsMaster.cs" />
+    <Compile Include="Home.aspx.cs">
+      <DependentUpon>Home.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Home.aspx.designer.cs">
+      <DependentUpon>Home.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Registration.aspx.cs">
+      <DependentUpon>Registration.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Registration.aspx.designer.cs">
+      <DependentUpon>Registration.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services.aspx.cs">
+      <DependentUpon>Services.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Services.aspx.designer.cs">
+      <DependentUpon>Services.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Site1.Master.cs">
+      <DependentUpon>Site1.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Site1.Master.designer.cs">
+      <DependentUpon>Site1.Master</DependentUpon>
+    </Compile>
+    <Compile Include="TermsNCondition.aspx.cs">
+      <DependentUpon>TermsNCondition.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TermsNCondition.aspx.designer.cs">
+      <DependentUpon>TermsNCondition.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Viewcars.aspx.cs">
+      <DependentUpon>Viewcars.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Viewcars.aspx.designer.cs">
+      <DependentUpon>Viewcars.aspx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+    <Content Include="Site1.Master" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup />
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>63561</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>https://localhost:44369/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', 'packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
