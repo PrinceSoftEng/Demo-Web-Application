@@ -94,8 +94,8 @@
     <Content Include="Css\cdnjs.cloudflare.com_ajax_libs_font-awesome_6.4.0_css_v4-font-face.min.css" />
     <Content Include="Css\cdnjs.cloudflare.com_ajax_libs_font-awesome_6.4.0_css_v4-shims.min.css" />
     <Content Include="Css\cdnjs.cloudflare.com_ajax_libs_font-awesome_6.4.0_css_v5-font-face.min.css" />
+    <Content Include="Css\AboutUsCss.css" />
     <Content Include="Css\CustomSheet.css" />
-    <Content Include="Css\RegisNLogin.css" />
     <Content Include="Css\Supercar.jpg" />
     <Content Include="Home.aspx" />
     <Content Include="Images\car3.jpg" />

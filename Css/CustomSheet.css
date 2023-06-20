@@ -9,7 +9,9 @@
 
 #footer1 {
     background:#726b00;
+    position:relative;
 }
 #footer2 {
     background:#531f00;
+    position:absolute;
 }
