@@ -10,6 +10,20 @@
             background-size:cover;
         }
     </style>
+    <%--<script type="text/javascript">
+        function ValidateLoginCre()
+        {
+            var username = document.getElementById('txtUsername');
+            var password = document.getElementById('txtPassword');
+            if ((username.value == ' ') || (password.value == ' ')) {
+                alert('Username and Password Cannot be Blank');
+            }
+            else
+            {
+                return true;
+            }
+        }
+    </script>--%>
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -37,7 +51,7 @@
         <tr style="background: Transparent;font-variant: small-caps;font-weight: 600;color: orange;">
             <td></td>
             <td>
-                <asp:Button ID="btnLogin" class="btn btn-primary  btn-sm"  runat="server" Text="Login" OnClick="OnLogin_Click" /></td>
+                <asp:Button ID="btnLogin" class="btn btn-primary  btn-sm"  runat="server" Text="Login" OnClientClick="ValidateLoginCre" OnClick="OnLogin_Click" /></td>
             <td></td>
         </tr>
         <tr style="background: Transparent;font-variant: small-caps;font-weight: 600;color: orange;">

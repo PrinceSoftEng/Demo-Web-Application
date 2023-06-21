@@ -114,37 +114,7 @@
             <td></td>
             <td></td>
             <td></td>
-        </tr>
-        <tr style="background: Transparent; font-variant: small-caps; font-weight: 600; color: orange;">
-            <td>
-                <asp:Label ID="lblPassword" runat="server" Text="Password:"></asp:Label>
-            </td>
-            <td style="background: transparent; opacity: 0.50">
-                <asp:TextBox ID="txtPassword" runat="server"></asp:TextBox>
-            </td>
-            <td style="font-size: x-small;">
-                <asp:RequiredFieldValidator ErrorMessage="Password Required" ForeColor="Red" ControlToValidate="txtPassword"
-                    runat="server" /></td>
-            <td style="font-size: x-small;">
-                <asp:RegularExpressionValidator runat="server" ErrorMessage="Enter Strong Password Using Upper,lower,Number and it Should be between 8 to 15 "
-                    ValidationExpression="^.*(?=.{8,15})(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!*@#$%^&+=]).*$" ForeColor="Red"
-                    ControlToValidate="txtPassword"></asp:RegularExpressionValidator>
-            </td>
-            <td></td>
-            <td></td>
-        </tr>
-        <tr style="background: Transparent; font-variant: small-caps; font-weight: 600; color: orange;">
-            <td>
-                <asp:Label ID="lblConfirmPassword" runat="server" Text="Confirm Password:"></asp:Label></td>
-            <td style="background: transparent; opacity: 0.50">
-                <asp:TextBox ID="txtConfirmPassword" runat="server" TextMode="Password"></asp:TextBox></td>
-            <td style="font-size: x-small;">
-                <asp:CompareValidator ErrorMessage="Passwords does not match." ForeColor="Red" ControlToCompare="txtPassword"
-                    ControlToValidate="txtConfirmPassword" runat="server" /></td>
-            <td></td>
-            <td></td>
-            <td></td>
-        </tr>
+        </tr> 
         <tr style="background: Transparent; font-variant: small-caps; font-weight: 600; color: orange;">
             <td style="vertical-align: top">
                 <asp:Label ID="Address" runat="server" Text="Address:"></asp:Label></td>
@@ -174,6 +144,36 @@
                 <asp:DropDownList ID="ddlCity" class="btn btn-primary dropdown-toggle" runat="server" AutoPostBack="true">
                 </asp:DropDownList></td>
         </tr>
+        <tr style="background: Transparent; font-variant: small-caps; font-weight: 600; color: orange;">
+            <td>
+                <asp:Label ID="lblPassword" runat="server" Text="Password:"></asp:Label>
+            </td>
+            <td style="background: transparent; opacity: 0.50">
+                <asp:TextBox ID="txtPassword" runat="server" TextMode="Password"></asp:TextBox>
+            </td>
+            <td style="font-size: x-small;">
+                <asp:RequiredFieldValidator ErrorMessage="Password Required" ForeColor="Red" ControlToValidate="txtPassword"
+                    runat="server" /></td>
+            <td style="font-size: x-small;">
+                <asp:RegularExpressionValidator runat="server" ErrorMessage="Enter Strong Password Using Upper,lower,Number and it Should be between 8 to 15 "
+                    ValidationExpression="^.*(?=.{8,15})(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!*@#$%^&+=]).*$" ForeColor="Red"
+                    ControlToValidate="txtPassword"></asp:RegularExpressionValidator>
+            </td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr style="background: Transparent; font-variant: small-caps; font-weight: 600; color: orange;">
+            <td>
+                <asp:Label ID="lblConfirmPassword" runat="server" Text="Confirm Password:"></asp:Label></td>
+            <td style="background: transparent; opacity: 0.50">
+                <asp:TextBox ID="txtConfirmPassword" runat="server" TextMode="Password"></asp:TextBox></td>
+            <td style="font-size: x-small;">
+                <asp:CompareValidator ErrorMessage="Passwords does not match." ForeColor="Red" ControlToCompare="txtPassword"
+                    ControlToValidate="txtConfirmPassword" runat="server" /></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>       
         <tr style="background: Transparent; font-variant: small-caps; font-weight: 600; color: orange;">
             <td>
                 <asp:Label ID="lblIsActive" runat="server" Text="IsActive"></asp:Label></td>

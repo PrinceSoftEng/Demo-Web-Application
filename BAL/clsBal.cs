@@ -6,6 +6,7 @@ using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Web;
+using System.Web.UI;
 using Web_Application_Registration.BEL;
 using Web_Application_Registration.DAL;
 
