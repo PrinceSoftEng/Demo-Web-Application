@@ -23,7 +23,7 @@
                 <asp:Label ID="lblStatus" runat="server"></asp:Label></td>
             <td><asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ForeColor="Red"
                     ControlToValidate="txtUsername" ErrorMessage="UserName Start with letter and length will be 6 to 12.."
-                    ValidationExpression="[a-zA-Z0-9]{5,11}"></asp:RegularExpressionValidator></td>
+                    ValidationExpression="[A-Za-z0-9._]{5,11}"></asp:RegularExpressionValidator></td>
         </tr>
         <tr style="background: Transparent; font-variant: small-caps; font-weight: 600; color: orange;">
             <td>
@@ -138,7 +138,7 @@
         <tr>
             <td style="background: Transparent; font-variant: small-caps; font-weight: 600; color: orange;">Isactive:<span style="color:red">*</span></td>
             <td  style="background: Transparent; font-variant: small-caps; font-weight: 600; color: orange;">
-                <asp:CheckBox ID="chkIsActive" runat="server" />User Active Status
+                <asp:CheckBox ID="chkIsActive" runat="server" /> User Active Status
             </td>
             <td></td>
         </tr>
