@@ -79,12 +79,13 @@ namespace Web_Application_Registration
             string keyword1 = "MAkv2SPBnI99212";
             StringBuilder mixedString = new StringBuilder();
             int maxLength = Math.Max(username.Length, password.Length);
-
             for (int i = 0; i < maxLength; i++)
             {
                 if (i < username.Length)
+                {
                     mixedString.Append(username[i]);
-
+                }
+                 
                 if (i < password.Length)
                 {
                     mixedString.Append(password[i]);

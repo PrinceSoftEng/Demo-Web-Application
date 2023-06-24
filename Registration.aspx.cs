@@ -26,7 +26,7 @@ namespace Web_Application_Registration
         {
             if (!this.IsPostBack)
             {
-                this.BindCountry(); 
+                this.BindCountry();
             }
         }
         protected void btnCancel_Click(object sender, EventArgs e)
@@ -35,24 +35,24 @@ namespace Web_Application_Registration
         }
         protected void btnSubmit_Click(object sender, EventArgs e)
         {
-            string encryptPass = MixStrings(txtUsername.Text.Trim() , "MAkv2SPBnI99212" + txtPassword.Text.Trim());
-            string emailId=string.Empty;
+            string encryptPass = MixStrings(txtUsername.Text.Trim(), "MAkv2SPBnI99212" + txtPassword.Text.Trim());
+            string emailId = string.Empty;
             objnewuser.userName = txtUsername.Text.Trim();
             objnewuser.firstName = txtFirstname.Text.Trim();
             objnewuser.middleName = txtMiddlename.Text.Trim();
             objnewuser.lastName = txtLastname.Text.Trim();
             objnewuser.gender = rblGender.SelectedItem.Text.ToString().Trim();
-            objnewuser.mobile= txtMobile.Text.Trim();
-            objnewuser.email=txtEmail.Text.Trim();
-            objnewuser.password= encryptPass;
-            objnewuser.address=txtAddress.Text.Trim();
+            objnewuser.mobile = txtMobile.Text.Trim();
+            objnewuser.email = txtEmail.Text.Trim();
+            objnewuser.password = encryptPass;
+            objnewuser.address = txtAddress.Text.Trim();
             objnewuser.country = ddlCountry.SelectedItem.Text;
             objnewuser.state = ddlState.SelectedItem.Text;
             objnewuser.city = ddlCity.SelectedItem.Text;
             objnewuser.isActive = chkIsActive.Checked ? true : false;
-            objnewuser.createdBy=txtUsername.Text.Trim();
+            objnewuser.createdBy = txtUsername.Text.Trim();
             objnewuser.modifiedBy = txtUsername.Text.Trim();
-            int retVal = objdal.AddEmployees(objnewuser);           
+            int retVal = objdal.AddEmployees(objnewuser);
             //MailMessage mailMessage = new MailMessage();
             //mailMessage.From = new MailAddress("guptaprince27012001@gmail.com");
             //mailMessage.To.Add(txtEmail.Text);
@@ -99,7 +99,7 @@ namespace Web_Application_Registration
                                 lblStatus.ForeColor = System.Drawing.Color.GhostWhite;
                                 lblStatus.Text = "UserName Already Taken";
                             }
-                            else 
+                            else
                             {
                                 lblStatus.ForeColor = System.Drawing.Color.IndianRed;
                                 lblStatus.Text = "UserName Available";
@@ -117,19 +117,18 @@ namespace Web_Application_Registration
 
             StringBuilder mixedString = new StringBuilder();
             int maxLength = Math.Max(username.Length, password.Length);
-
             for (int i = 0; i < maxLength; i++)
             {
                 if (i < username.Length)
+                { 
                     mixedString.Append(username[i]);
-
+                }
                 if (i < password.Length)
                 {
                     mixedString.Append(password[i]);
                     mixedString.Append(GetKeywordCharacter(i, keyword1));
                 }
             }
-
             return mixedString.ToString();
         }
 
@@ -149,7 +148,7 @@ namespace Web_Application_Registration
             ddlCountry.Items.Insert(0, new ListItem("---Select Country---"));
         }
 
-        protected void ddlCountry_OnSelectedIndexChanged(object sender, EventArgs e) 
+        protected void ddlCountry_OnSelectedIndexChanged(object sender, EventArgs e)
         {
             this.BindState();
         }
@@ -190,7 +189,7 @@ namespace Web_Application_Registration
             txtMiddlename.Text = string.Empty;
             txtLastname.Text = string.Empty;
             txtMobile.Text = string.Empty;
-            txtEmail.Text = string.Empty; 
+            txtEmail.Text = string.Empty;
             txtPassword.Text = string.Empty;
             txtAddress.Text = string.Empty;
         }
