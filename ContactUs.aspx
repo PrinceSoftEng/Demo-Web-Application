@@ -15,47 +15,38 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <table style="margin: 5% 50% 50% 35%;">
         <tr style="background: Transparent; font-variant: small-caps; font-weight: 600; color: orange;">
-            <td>Name:
+            <td>Name:<span style="color:red">*</span>
             </td>
             <td style="background: transparent; opacity: 0.50">
                 <asp:TextBox ID="txtName" runat="server" /></td>
-            <td>
-                <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="Enter Name" ForeColor="Red" ControlToValidate="txtName" /></td>
+            <td></td>
         </tr>
         <tr style="background: Transparent; font-variant: small-caps; font-weight: 600; color: orange;">
-            <td>Subject:</td>
+            <td>Subject:<span style="color:red">*</span></td>
             <td style="background: transparent; opacity: 0.50">
                 <asp:TextBox ID="txtSubject" runat="server"></asp:TextBox></td>
-            <td>
-                <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ForeColor="Red" ErrorMessage="Enter Subject"
-                    ControlToValidate="txtSubject" /></td>
+            <td></td>
         </tr>
         <tr style="background: Transparent; font-variant: small-caps; font-weight: 600; color: orange;">
-            <td>Email:</td>
+            <td>Email:<span style="color:red">*</span></td>
             <td style="background: transparent; opacity: 0.50">
                 <asp:TextBox ID="txtEmail" runat="server"></asp:TextBox></td>
             <td>
                 <asp:RegularExpressionValidator ID="valRegEx" runat="server" ControlToValidate="txtEmail"
-                    ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" ErrorMessage="Invalid Email address." ForeColor="Red" Display="dynamic" />
-                <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ErrorMessage="Email Is Mandotory"
-                    ControlToValidate="txtEmail" ForeColor="Red" />
+                    ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" ErrorMessage="Invalid Email address." ForeColor="Red" Display="dynamic" />                
             </td>
         </tr>
         <tr style="background: Transparent; font-variant: small-caps; font-weight: 600; color: orange;">
-            <td valign="top">Message:</td>
+            <td valign="top">Message:<span style="color:red">*</span></td>
             <td style="background: transparent; opacity: 0.50">
                 <asp:TextBox ID="txtMessage" Rows="5" Columns="40" TextMode="MultiLine" runat="server" /></td>
-            <td>
-                <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ForeColor="Red" ErrorMessage="Enter Message "
-                    ControlToValidate="txtMessage" /></td>
+            <td></td>
         </tr>
         <tr style="background: Transparent; font-variant: small-caps; font-weight: 600; color: orange;">
             <td></td>
             <td>
                 <asp:FileUpload ID="FileUpload1" runat="server" /></td>
-            <td>
-                <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ForeColor="Red" ErrorMessage="Please select File like .pdf,.png format"
-                    ControlToValidate="FileUpload1" /></td>
+            <td></td>
         </tr>
         <tr style="background: Transparent; font-variant: small-caps; font-weight: 600; color: orange;">
             <td></td>
@@ -67,6 +58,7 @@
             <td></td>
             <td>
                 <asp:Label ID="lblMessage" runat="server" Text="" ForeColor="Green" /></td>
+            <td></td>
         </tr>
     </table>
 

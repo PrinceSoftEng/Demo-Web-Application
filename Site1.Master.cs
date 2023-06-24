@@ -36,7 +36,7 @@ namespace Web_Application_Registration
         {
             Response.Redirect("Registration.aspx");    
         }
-        protected void OnLogout(object sender, EventArgs e)
+        protected void OnLogin(object sender, EventArgs e)
         {
             Response.Redirect("Login.aspx");
         }

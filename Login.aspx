@@ -28,30 +28,25 @@
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <table style="margin: 15% 100% 15% 40%;">
-        <tr style="background: Transparent;font-variant: small-caps;font-weight: 600;color: orange;">
+        <tr style="background: Transparent; font-variant: small-caps; font-weight: 600; color: orange;">
             <td>
-                <asp:Label ID="lblUsername" runat="server" Text="UserName:"></asp:Label></td>
-            <td style="background:transparent;opacity:0.50;">
+                <asp:Label ID="lblUsername" runat="server" Text="UserName:"></asp:Label><span style="color:red">*</span></td>
+            <td style="background: transparent; opacity: 0.50;">
                 <asp:TextBox ID="txtUsername" runat="server"></asp:TextBox></td>
-            <td style="font-size: x-small;">
-                <asp:RequiredFieldValidator ErrorMessage="UserName Cannot be Empty" ForeColor="Red" ControlToValidate="txtUsername"
-                    runat="server" /></td>
+            <td></td>
         </tr>
         <tr style="background: Transparent;font-variant: small-caps;font-weight: 600;color: orange;">
             <td>
-                <asp:Label ID="lblPassword" runat="server" Text="Password:"></asp:Label>
+                <asp:Label ID="lblPassword" runat="server" Text="Password:"></asp:Label><span style="color:red">*</span>
             </td>
             <td style="background:transparent;opacity:0.50">
                 <asp:TextBox ID="txtPassword" runat="server" TextMode="Password"></asp:TextBox>
             </td>
-            <td style="font-size: x-small;">
-                <asp:RequiredFieldValidator ErrorMessage="Password Required" ForeColor="Red" ControlToValidate="txtPassword"
-                    runat="server" /></td>
+            <td></td>
         </tr>
         <tr style="background: Transparent;font-variant: small-caps;font-weight: 600;color: orange;">
             <td></td>
-            <td>
-                <asp:Button ID="btnLogin" class="btn btn-primary  btn-sm"  runat="server" Text="Login" OnClientClick="ValidateLoginCre" OnClick="OnLogin_Click" /></td>
+            <td><asp:Button ID="btnLogin" class="btn btn-primary  btn-sm"  runat="server" Text="Login" OnClientClick="ValidateLoginCre" OnClick="OnLogin_Click" /></td>
             <td></td>
         </tr>
         <tr style="background: Transparent;font-variant: small-caps;font-weight: 600;color: orange;">

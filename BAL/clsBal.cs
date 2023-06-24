@@ -33,7 +33,7 @@ namespace Web_Application_Registration.BO
             cmd.Parameters.AddWithValue("@Country", newUser.country);
             cmd.Parameters.AddWithValue("@State", newUser.state);
             cmd.Parameters.AddWithValue("@City", newUser.city);
-            cmd.Parameters.AddWithValue("@IsActive", newUser.isactive);
+            cmd.Parameters.AddWithValue("@IsActive", newUser.isActive);
             cmd.Parameters.AddWithValue("@CreatedBy", newUser.createdBy);
             cmd.Parameters.AddWithValue("@ModifiedBy", newUser.modifiedBy);
             conn.Open();
@@ -105,25 +105,25 @@ namespace Web_Application_Registration.BO
             return dt;
         }
 
-        public DataTable GetLogin(clsDal dal)
-        {
-            using (SqlConnection con = new SqlConnection(conString))
-            {
-                using (SqlCommand cmd = new SqlCommand("UserRegTable_LoginCredintials", con))
-                {
-                    cmd.CommandType=CommandType.StoredProcedure;
-                    cmd.Parameters.AddWithValue("@UserName", dal.userName);
-                    cmd.Parameters.AddWithValue("@Password", dal.password);
-                    using (SqlDataAdapter sda = new SqlDataAdapter(cmd))
-                    {
-                        using (DataTable dt = new DataTable())
-                        {
-                            sda.Fill(dt);
-                            return dt;
-                        }
-                    }
-                }
-            }
-        }
+        //public DataTable GetLogin(clsDal dal)
+        //{
+        //    using (SqlConnection con = new SqlConnection(conString))
+        //    {
+        //        using (SqlCommand cmd = new SqlCommand("UserRegTable_LoginCredintials", con))
+        //        {
+        //            cmd.CommandType=CommandType.StoredProcedure;
+        //            cmd.Parameters.AddWithValue("@UserName", dal.userName);
+        //            cmd.Parameters.AddWithValue("@Password", dal.password);
+        //            using (SqlDataAdapter sda = new SqlDataAdapter(cmd))
+        //            {
+        //                using (DataTable dt = new DataTable())
+        //                {
+        //                    sda.Fill(dt);
+        //                    return dt;
+        //                }
+        //            }
+        //        }
+        //    }
+        //}
     }
 }

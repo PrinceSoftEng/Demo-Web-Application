@@ -21,7 +21,7 @@ namespace Web_Application_Registration.BEL
         private string str_Country;
         private string str_State;
         private string str_City;
-        private string str_IsActive;
+        private bool str_IsActive;
         private string str_CreatedBy;
         private string str_ModifiedBy;
 
@@ -90,7 +90,7 @@ namespace Web_Application_Registration.BEL
             get { return str_City; }
             set { str_City = value; }
         }
-        public string isactive
+        public bool isActive
         {
             get { return str_IsActive; }
             set { str_IsActive = value; }
