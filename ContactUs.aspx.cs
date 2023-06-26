@@ -24,7 +24,7 @@ namespace Web_Application_Registration
                 SmtpSection smtpSection = (SmtpSection)ConfigurationManager.GetSection("system.net/mailSettings/smtp");
                 MailMessage Msg = new MailMessage();
                 Msg.From = new MailAddress(txtEmail.Text);
-                Msg.To.Add("guptaprince27012001@gmail.com");
+                Msg.To.Add("princegupta.0627@gmail.com");
                 Msg.Subject = txtSubject.Text;
                 Msg.Body = "Name:" + txtName.Text + "<br/><br/>Email:" + txtEmail.Text + "<br/>" + txtMessage.Text;
                 if (FileUpload1.HasFile)
@@ -35,7 +35,7 @@ namespace Web_Application_Registration
                 SmtpClient smtp = new SmtpClient();
                 smtp.Host = "smtp.gmail.com";
                 smtp.Port = 587;
-                smtp.Credentials = new System.Net.NetworkCredential("guptaprince27012001@gmail.com", "yourpassword");
+                smtp.Credentials = new System.Net.NetworkCredential("princegupta.0627@gmail.com", "Mamydady@092701");
                 smtp.EnableSsl = true;
                 smtp.Send(Msg);
                 lblMessage.Text = "Thanks for Contact us";

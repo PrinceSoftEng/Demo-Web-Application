@@ -60,6 +60,12 @@
     <Reference Include="System.Configuration" />
     <Reference Include="System.Web.Services" />
     <Reference Include="System.EnterpriseServices" />
+    <Reference Include="TIPLEncDec">
+      <HintPath>..\..\..\Users\admin\Desktop\Encrypt password\TIPLEncDec.dll</HintPath>
+    </Reference>
+    <Reference Include="TIPLEncDecStd">
+      <HintPath>..\..\..\Users\admin\Desktop\Encrypt password\TIPLEncDecStd.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
@@ -123,6 +129,7 @@
     <Content Include="TermsNCondition.aspx" />
     <Content Include="Viewcars.aspx" />
     <Content Include="Web.config" />
+    <Content Include="ForgetPassword.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AboutUs.aspx.cs">
@@ -198,6 +205,13 @@
     </Compile>
     <Compile Include="Viewcars.aspx.designer.cs">
       <DependentUpon>Viewcars.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ForgetPassword.aspx.cs">
+      <DependentUpon>ForgetPassword.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ForgetPassword.aspx.designer.cs">
+      <DependentUpon>ForgetPassword.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

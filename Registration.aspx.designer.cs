@@ -285,6 +285,24 @@ namespace Web_Application_Registration
         protected global::System.Web.UI.WebControls.CheckBox chkIsActive;
 
         /// <summary>
+        /// chkTerms control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CheckBox chkTerms;
+
+        /// <summary>
+        /// vTerms control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CustomValidator vTerms;
+
+        /// <summary>
         /// btnSubmit control.
         /// </summary>
         /// <remarks>

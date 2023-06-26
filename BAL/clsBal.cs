@@ -42,23 +42,23 @@ namespace Web_Application_Registration.BO
             return result;
         }
 
-        ////public string FetchId(string emailId)
-        ////{
-        ////    string constring = ConfigurationManager.ConnectionStrings["constr"].ConnectionString;
-        ////    using (SqlConnection con = new SqlConnection(constring))
-        ////    {
-        ////        using (SqlCommand cmd = new SqlCommand("UserRegTable_ActivationEmail_WithId", con))
-        ////        {
-        ////            cmd.CommandType = CommandType.StoredProcedure;
-        ////            cmd.Parameters.AddWithValue("@Email", emailId);
-        ////            con.Open();
-        ////            string id = Convert.ToString(cmd.ExecuteScalar());
-        ////            con.Close();
-        ////            cmd.Dispose();
-        ////            return id;
-        ////        }
-        ////    }
-        ////}
+        //public string FetchId(string emailId)
+        //{
+        //    string constring = ConfigurationManager.ConnectionStrings["constr"].ConnectionString;
+        //    using (SqlConnection con = new SqlConnection(constring))
+        //    {
+        //        using (SqlCommand cmd = new SqlCommand("UserRegTable_ActivationEmail_WithId", con))
+        //        {
+        //            cmd.CommandType = CommandType.StoredProcedure;
+        //            cmd.Parameters.AddWithValue("@Email", emailId);
+        //            con.Open();
+        //            string id = Convert.ToString(cmd.ExecuteScalar());
+        //            con.Close();
+        //            cmd.Dispose();
+        //            return id;
+        //        }
+        //    }
+        //}
 
         public static DataTable GetCountryList()
         {

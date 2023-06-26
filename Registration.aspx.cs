@@ -54,7 +54,7 @@ namespace Web_Application_Registration
             objnewuser.modifiedBy = txtUsername.Text.Trim();
             int retVal = objdal.AddEmployees(objnewuser);
             //MailMessage mailMessage = new MailMessage();
-            //mailMessage.From = new MailAddress("guptaprince27012001@gmail.com");
+            //mailMessage.From = new MailAddress("princegupta.0627@gmail.com");
             //mailMessage.To.Add(txtEmail.Text);
             //mailMessage.Subject = "Account Activation Email";
             //string ActivationUrl = Server.HtmlEncode("https://localhost:44369/Login.aspx?ID=" + objbal.FetchId(emailId) + "&EmailId=" + emailId);
@@ -64,11 +64,11 @@ namespace Web_Application_Registration
             //SmtpClient smtpClient = new SmtpClient();
             //smtpClient.Port = 587;
             //smtpClient.Host = "smtp.gmail.com";
-            //smtpClient.EnableSsl = true;
-            ////NetworkCredential NetworkCred = new NetworkCredential("guptaprince27012001@gmail.com", "<Password>");
+            //smtpClient.EnableSsl = false;
+            //NetworkCredential NetworkCred = new NetworkCredential("princegupta.0627@gmail.com", "Mamydady@092701");
             //smtpClient.UseDefaultCredentials = true;
-            ////smtpClient.Credentials = NetworkCred;
-            //smtpClient.Send(mailMessage);                 
+            //smtpClient.Credentials = NetworkCred;
+            //smtpClient.Send(mailMessage);
             if (retVal > 0)
             {
                 ClientScript.RegisterStartupScript(Page.GetType(), "Message", "alert('Registration Successful And Activation Mail Has Send To You');window.location='Home.aspx';", true);

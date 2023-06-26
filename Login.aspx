@@ -45,8 +45,8 @@
             <td></td>
         </tr>
         <tr style="background: Transparent;font-variant: small-caps;font-weight: 600;color: orange;">
-            <td></td>
-            <td><asp:Button ID="btnLogin" class="btn btn-primary  btn-sm"  runat="server" Text="Login" OnClientClick="ValidateLoginCre" OnClick="OnLogin_Click" /></td>
+            <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp<asp:Button ID="btnLogin" class="btn btn-primary  btn-sm"  runat="server" Text="Login" OnClientClick="ValidateLoginCre" OnClick="OnLogin_Click" /></td>
+            <td>&nbsp;&nbsp;&nbsp;<asp:LinkButton runat="server" ID="lnkForgetPassword" OnClick="OnForget_Password">Forget Password?</asp:LinkButton></td>
             <td></td>
         </tr>
         <tr style="background: Transparent;font-variant: small-caps;font-weight: 600;color: orange;">

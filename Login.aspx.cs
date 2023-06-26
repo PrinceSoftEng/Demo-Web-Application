@@ -74,6 +74,11 @@ namespace Web_Application_Registration
             }
         }
 
+        protected void OnForget_Password(object sender, EventArgs e)
+        {
+            Response.Redirect("ForgetPassword.aspx");
+        }
+
         private string MixStrings(string username, string password)
         {
             string keyword1 = "MAkv2SPBnI99212";
@@ -92,7 +97,6 @@ namespace Web_Application_Registration
                     mixedString.Append(GetKeywordCharacter(i, keyword1));
                 }
             }
-
             return mixedString.ToString();
         }
 

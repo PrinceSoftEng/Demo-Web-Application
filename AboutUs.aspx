@@ -14,7 +14,6 @@
     <div class="row">
         <div class="column">
             <div class="card">
-                <%--<img src="/w3images/team1.jpg" alt="Jane" style="width: 100%">--%>
                 <div class="container">
                     <h2>Sharukh Ansari</h2>
                     <p class="title">Founder</p>
@@ -31,7 +30,6 @@
 
         <div class="column">
             <div class="card">
-                <%--<img src="/w3images/team2.jpg" alt="Mike" style="width: 100%">--%>
                 <div class="container">
                     <h2>Ketan Shah</h2>
                     <p class="title">CEO & Partner</p>
@@ -48,7 +46,6 @@
 
         <div class="column">
             <div class="card">
-                <%--<img src="/w3images/team3.jpg" alt="John" style="width: 100%">--%>
                 <div class="container">
                     <h2>Rohit Khobe</h2>
                     <p class="title">Manager</p>
