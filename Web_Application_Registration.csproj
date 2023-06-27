@@ -130,6 +130,7 @@
     <Content Include="Viewcars.aspx" />
     <Content Include="Web.config" />
     <Content Include="ForgetPassword.aspx" />
+    <Content Include="ResetPasswordLink.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AboutUs.aspx.cs">
@@ -212,6 +213,13 @@
     </Compile>
     <Compile Include="ForgetPassword.aspx.designer.cs">
       <DependentUpon>ForgetPassword.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ResetPasswordLink.aspx.cs">
+      <DependentUpon>ResetPasswordLink.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ResetPasswordLink.aspx.designer.cs">
+      <DependentUpon>ResetPasswordLink.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

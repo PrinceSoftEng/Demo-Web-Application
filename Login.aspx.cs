@@ -34,6 +34,7 @@ namespace Web_Application_Registration
 
             try
             {
+                Session["UserName"] = txtUsername.Text;
                 string constring = ConfigurationManager.ConnectionStrings["constr"].ConnectionString;
                 using (SqlConnection con = new SqlConnection(constring))
                 {

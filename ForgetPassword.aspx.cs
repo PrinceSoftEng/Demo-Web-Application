@@ -2,18 +2,23 @@
 using System;
 using System.Collections.Generic;
 using System.Configuration;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Net;
 using System.Net.Mail;
+using System.Text;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Xml.Linq;
+using Web_Application_Registration.BO;
 
 namespace Web_Application_Registration
 {
     public partial class WebForm1 : System.Web.UI.Page
     {
+        clsBal bal = new clsBal();
         protected void Page_Load(object sender, EventArgs e)
         {
 
@@ -26,54 +31,67 @@ namespace Web_Application_Registration
 
         protected void OnSendEmail_Click(object sender, EventArgs e)
         {
-            if (!string.IsNullOrEmpty(txtEmail.Text.Trim()))
+            try
             {
-                string username = string.Empty;
-                string password = string.Empty;
-                string constr = ConfigurationManager.ConnectionStrings["constr"].ConnectionString;
-                using (SqlConnection con = new SqlConnection(constr))
+                DataTable dt = new DataTable();
+                Session["Email"] = txtEmail.Text;
+                string constring = ConfigurationManager.ConnectionStrings["constr"].ConnectionString;
+                using (SqlConnection con = new SqlConnection(constring))
                 {
-                    using (SqlCommand cmd = new SqlCommand("UserRegTable_spSendPasswordThroughEmail", con))
+                    using (SqlDataAdapter sdr = new SqlDataAdapter("Select * from UserRegTable where Email=@Email",con))
                     {
-                        cmd.CommandType = System.Data.CommandType.StoredProcedure;
-                        cmd.Parameters.AddWithValue("@Email", txtEmail.Text.Trim());
                         con.Open();
-                        using (SqlDataReader sdr = cmd.ExecuteReader())
+                        sdr.SelectCommand.Parameters.AddWithValue("@Email", txtEmail.Text);
+                        sdr.Fill(dt);
+                        if (dt.Rows.Count > 0)
                         {
-                            if (sdr.Read())
-                            {
-                                username = sdr["UserName"].ToString();
-                                password = sdr["Password"].ToString();
-                            }
+                            SqlCommand cmd = new SqlCommand("Update UserRegTable set Password_Change_Status=1 where Email='" + txtEmail.Text + "'", con);
+                            cmd.ExecuteNonQuery();
+                            SendMail();
+                            ClientScript.RegisterStartupScript(Page.GetType(), "alert", "alert(Successfully sent Password reset link on your mail ,please check once! Thank you.)", true);
+                            con.Close();
+                            txtEmail.Text = "";
                         }
-                        con.Close();
+                        else 
+                        {
+                            ClientScript.RegisterStartupScript(Page.GetType(), "alert", "alert(Please enter Valid Email )", true);
+                        }
                     }
                 }
-                if (!string.IsNullOrEmpty(password))
-                {
-                    MailMessage mm = new MailMessage("princegupta.0627@gmail.com", txtEmail.Text.Trim());
-                    mm.Subject = "Password Recovery";
-                    mm.Body = string.Format("Hi {0},<br/><br/>Your Password is {1}.<br/><br/>Thank You.", username, password);
-                    mm.IsBodyHtml = true;
-                    NetworkCredential networkCredential = new NetworkCredential("princegupta.0627@gmail.com", "Mamydady@092701");
-                    SmtpClient smtpClient = new SmtpClient();
-                    smtpClient.Host = "smtp.gmail.com";
-                    smtpClient.EnableSsl = true;
-                    smtpClient.UseDefaultCredentials = true;
-                    smtpClient.Credentials = networkCredential;
-                    smtpClient.Port = 465;
-                    smtpClient.Send(mm);
-                    ClientScript.RegisterStartupScript(Page.GetType(), "alert", "alert(Password has been sent to your email address.)", true);
-                }
-                else
-                {
-                    ClientScript.RegisterStartupScript(Page.GetType(), "alert", "alert(This email address does not match our records.)", true);
-                }
+                
             }
-            else
+            catch (Exception ex)
             {
-                ClientScript.RegisterStartupScript(Page.GetType(), "Message", "alert('Please Enter Your EmailId');", true);
+
+                throw;
             }
         }
+
+        private void SendMail()
+        {
+            try
+            {
+                StringBuilder stringBuilder= new StringBuilder();
+                stringBuilder.Append("Hi,<br/> Click on below link to reset your password<br/>");
+                stringBuilder.Append("<a href=https://localhost:44369/ResetPasswordLink.aspx?UserName="+bal.GetUserName(txtEmail.Text.Trim())+"<br/>");
+                stringBuilder.Append("Email =" + txtEmail.Text + ">Click Here To Change Password</a><br/>");
+                stringBuilder.Append("<b>Thanks & Regards</b>,<br>Prince Gupta<br/>");
+                MailMessage mm = new MailMessage("princegupta.0627@gmail.com", txtEmail.Text.Trim(), "Reset Your Password", stringBuilder.ToString());
+                mm.IsBodyHtml = true;
+                SmtpClient smtp= new SmtpClient();
+                smtp.Host = "smtp.gmail.com";
+                smtp.Port = 587;
+                smtp.EnableSsl = false;
+                smtp.DeliveryMethod = SmtpDeliveryMethod.Network;
+                smtp.Credentials = new NetworkCredential("princegupta.0627@gmail.com", "Mamydady@092701");
+                smtp.Send(mm);
+            }
+            catch (Exception ex)
+            {
+
+                throw;
+            }
+        }
+
     }
 }

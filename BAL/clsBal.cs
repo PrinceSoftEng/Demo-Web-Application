@@ -14,6 +14,7 @@ namespace Web_Application_Registration.BO
 {
     public class clsBal
     {
+        clsDal dal;
         string conString = ConfigurationManager.ConnectionStrings["constr"].ConnectionString;
         public Int32 AddEmployees(clsDal newUser)
         {
@@ -59,6 +60,22 @@ namespace Web_Application_Registration.BO
         //        }
         //    }
         //}
+
+        public string GetUserName(string UserName)
+        {
+            string constring = ConfigurationManager.ConnectionStrings["constr"].ConnectionString;
+            using (SqlConnection con = new SqlConnection(constring))
+            {
+                using (SqlCommand cmd = new SqlCommand("UserRegTable_GetUserName", con))
+                {
+                    cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@Email", UserName );
+                    con.Open();
+                    string username = cmd.ExecuteScalar().ToString();
+                    return username;
+                }
+            }
+        }
 
         public static DataTable GetCountryList()
         {
