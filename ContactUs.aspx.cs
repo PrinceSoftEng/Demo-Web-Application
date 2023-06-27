@@ -36,7 +36,7 @@ namespace Web_Application_Registration
                 smtp.Host = "smtp.gmail.com";
                 smtp.Port = 587;
                 smtp.Credentials = new System.Net.NetworkCredential("princegupta.0627@gmail.com", "Mamydady@092701");
-                smtp.EnableSsl = false;
+                smtp.EnableSsl = true;
                 smtp.Send(Msg);
                 lblMessage.Text = "Thanks for Contact us";
                 txtName.Text = "";

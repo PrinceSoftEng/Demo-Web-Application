@@ -4,6 +4,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.IO;
 using System.Net;
+using System.Net.Configuration;
 using System.Net.Mail;
 using System.Security.Cryptography;
 using System.Text;
@@ -53,22 +54,23 @@ namespace Web_Application_Registration
             objnewuser.createdBy = txtUsername.Text.Trim();
             objnewuser.modifiedBy = txtUsername.Text.Trim();
             int retVal = objdal.AddEmployees(objnewuser);
-            //MailMessage mailMessage = new MailMessage();
-            //mailMessage.From = new MailAddress("princegupta.0627@gmail.com");
-            //mailMessage.To.Add(txtEmail.Text);
-            //mailMessage.Subject = "Account Activation Email";
-            //string ActivationUrl = Server.HtmlEncode("https://localhost:44369/Login.aspx?ID=" + objbal.FetchId(emailId) + "&EmailId=" + emailId);
-            //mailMessage.Body = "Hi " + txtUsername.Text.Trim() + "!\n" +
-            //  "Thanks for showing interest and registring in <a href='https://localhost:44369/Home.aspx'> Angel Automobile<a> " +
-            //  " Please <a href='" + ActivationUrl + "'>click here to activate</a>  your account and enjoy our services. \nThanks!"; ;
-            //SmtpClient smtpClient = new SmtpClient();
-            //smtpClient.Port = 587;
-            //smtpClient.Host = "smtp.gmail.com";
-            //smtpClient.EnableSsl = false;
-            //NetworkCredential NetworkCred = new NetworkCredential("princegupta.0627@gmail.com", "Mamydady@092701");
-            //smtpClient.UseDefaultCredentials = true;
-            //smtpClient.Credentials = NetworkCred;
-            //smtpClient.Send(mailMessage);
+            SmtpSection smtpSection = (SmtpSection)ConfigurationManager.GetSection("system.net/mailSettings/smtp");
+            MailMessage mailMessage = new MailMessage();
+            mailMessage.From = new MailAddress("princegupta.0627@gmail.com");
+            mailMessage.To.Add(txtEmail.Text);
+            mailMessage.Subject = "Account Activation Email";
+            string ActivationUrl = Server.HtmlEncode("https://localhost:44369/Login.aspx?ID=" + objbal.FetchId(emailId) + "&EmailId=" + emailId);
+            mailMessage.Body = "Hi " + txtUsername.Text.Trim() + "!\n" +
+              "Thanks for showing interest and registring in <a href='https://localhost:44369/Home.aspx'> Angel Automobile<a> " +
+              " Please <a href='" + ActivationUrl + "'>click here to activate</a>  your account and enjoy our services. \nThanks!"; ;
+            SmtpClient smtpClient = new SmtpClient();
+            smtpClient.Port = 587;
+            smtpClient.Host = "smtp.gmail.com";
+            smtpClient.EnableSsl = true;
+            NetworkCredential NetworkCred = new NetworkCredential("princegupta.0627@gmail.com", "Mamydady@092701");
+            smtpClient.UseDefaultCredentials = false;
+            smtpClient.Credentials = NetworkCred;
+            smtpClient.Send(mailMessage);
             if (retVal > 0)
             {
                 ClientScript.RegisterStartupScript(Page.GetType(), "Message", "alert('Registration Successful And Activation Mail Has Send To You');window.location='Home.aspx';", true);
