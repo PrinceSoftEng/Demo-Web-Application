@@ -11,6 +11,10 @@
             background-size: cover;
         }
     </style>
+    
+</asp:Content>
+
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <script type = "text/javascript">
         function ValidateCheckBox(sender, args) {
             if (document.getElementById("chkTerms").checked == true) {
@@ -20,9 +24,6 @@
             }
         }
     </script> 
-</asp:Content>
-
-<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <table style="margin: 2% 25% 2% 25%;">
         <tr style="background: Transparent; font-variant: small-caps; font-weight: 600; color: orange;">
             <td>

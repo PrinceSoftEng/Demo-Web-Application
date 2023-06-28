@@ -48,7 +48,8 @@ namespace Web_Application_Registration
                         {
                             SqlCommand cmd = new SqlCommand("Update UserRegTable set Password_Change_Status=1 where Email='" + txtEmail.Text + "'", con);
                             cmd.ExecuteNonQuery();
-                            SendMail();
+                            //SendMail();
+                            SendEmailFrmGmail();
                             ClientScript.RegisterStartupScript(Page.GetType(), "alert", "alert(Successfully sent Password reset link on your mail ,please check once! Thank you.)", true);
                             con.Close();
                             txtEmail.Text = "";
@@ -82,7 +83,7 @@ namespace Web_Application_Registration
                 mm.IsBodyHtml = true;
                 SmtpClient smtp= new SmtpClient();
                 smtp.Host = "smtp.gmail.com";
-                smtp.Port = 587;
+                smtp.Port = 465;
                 smtp.EnableSsl = true;
                 smtp.DeliveryMethod = SmtpDeliveryMethod.Network;
                 smtp.Credentials = new NetworkCredential("princegupta.0627@gmail.com", "Mamydady@092701");
@@ -92,6 +93,38 @@ namespace Web_Application_Registration
             {
 
                 throw;
+            }
+        }
+
+        public void SendEmailFrmGmail()
+        {
+            try
+            {
+                //Create the msg object to be sent
+                MailMessage msg = new MailMessage();
+                //Add your email address to the recipients
+                msg.To.Add("sandeep.nikalje@gmail.com");
+                //Configure the address we are sending the mail from **- NOT SURE IF I NEED THIS OR NOT?**
+                MailAddress address = new MailAddress("princegupta.0627@gmail.com");
+                msg.From = address;
+                //Append their name in the beginning of the subject
+                msg.Subject = "Test Mail";
+                msg.Body = "Demo Mail Send function Check";
+
+                //Configure an SmtpClient to send the mail.
+                SmtpClient client = new SmtpClient("smtp.techlink.com", 587);
+                client.EnableSsl = false; //only enable this if your provider requires it
+                                         //Setup credentials to login to our sender email address ("UserName", "Password")
+                NetworkCredential credentials = new NetworkCredential("princegupta.0627@gmail.com", "Mamydady@092701");
+                client.Credentials = credentials;
+
+                //Send the msg
+                client.Send(msg);
+                
+            }
+            catch (Exception ex)
+            {
+               
             }
         }
 

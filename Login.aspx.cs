@@ -49,6 +49,7 @@ namespace Web_Application_Registration
                         {
                             if (dr.Read())
                             {
+                                Session["UserName"] = txtUsername.Text;
                                 string storedPassword = dr["Password"].ToString();
                                 string mixedPassword = MixStrings(txtUsername.Text, "MAkv2SPBnI99212" + txtPassword.Text);
 

@@ -51,7 +51,7 @@
         <tr style="background: Transparent; font-variant: small-caps; font-weight: 600; color: orange;">
             <td></td>
             <td>
-                <asp:Button ID="btnSend" runat="server" Text="Send" OnClick="OnSend_Click" /></td>
+                <asp:Button ID="btnSend" runat="server" class="btn btn-primary  btn-sm" Text="Send" OnClick="OnSend_Click" /></td>
             <td></td>
         </tr>
         <tr>

@@ -11,10 +11,12 @@ namespace Web_Application_Registration
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Session["UserName"] != null)
-            {
-                Response.Write("Welcome " + "<b>" + Session["UserName"].ToString());
-            }
+            //if (Session["UserName"] != null)
+            //{
+            //    Master.btnlogin.Visible = true;
+            //    Master.labelUsername.Text = "Hello -" + Session["UserName"].ToString();
+                
+            //}
         }
     }
 }

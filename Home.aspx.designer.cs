@@ -13,5 +13,19 @@ namespace Web_Application_Registration
 
     public partial class Home
     {
+
+        /// <summary>
+        /// Master property.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated property.
+        /// </remarks>
+        public new Web_Application_Registration.Site1 Master
+        {
+            get
+            {
+                return ((Web_Application_Registration.Site1)(base.Master));
+            }
+        }
     }
 }

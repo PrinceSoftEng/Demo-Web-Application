@@ -40,5 +40,14 @@ namespace Web_Application_Registration
         {
             Response.Redirect("Login.aspx");
         }
+        //public Label labelUsername
+        //{
+        //    get { return this.labelUsername; }
+        //}
+        //public LinkButton btnlogin
+        //{
+        //    get { return this.btnlogin; }
+        //}
+        
     }
 }

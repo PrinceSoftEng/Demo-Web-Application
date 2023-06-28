@@ -37,7 +37,7 @@
                     &nbsp;
                 </td>
                 <td>
-                    <asp:Button ID="btnsubmit" runat="server" Text="Submit" Width="156px" OnClick="btnsubmit_Click" />
+                    <asp:Button ID="btnsubmit" runat="server" class="btn btn-primary  btn-sm" Text="Submit" Width="156px" OnClick="btnsubmit_Click" />
                 </td>
             </tr>
         </table>

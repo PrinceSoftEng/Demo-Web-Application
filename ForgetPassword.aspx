@@ -20,7 +20,7 @@
         <tr>
             <td></td>
             <td style="background: Transparent; font-variant: small-caps; font-weight: 600; color: orange;">                
-                <asp:Button ID="btnSend" runat="server" Text="Send" OnClick="OnSendEmail_Click" />&nbsp;&nbsp;
+                <asp:Button ID="btnSend" runat="server" class="btn btn-primary  btn-sm" Text="Send" OnClick="OnSendEmail_Click" />&nbsp;&nbsp;
                 <asp:LinkButton ID="lnkBackbutton" runat="server" Text="Back to Login" OnClick="OnBackbtn_Click"></asp:LinkButton>
             </td>
             
