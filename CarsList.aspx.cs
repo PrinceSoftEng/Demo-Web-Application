@@ -39,6 +39,10 @@ namespace Web_Application_Registration
                             sda.Fill(dt);
                             GvCars.DataSource = dt;
                             GvCars.DataBind();
+                            GvCars.HeaderRow.Cells[0].Attributes["data-class"] = "expand";
+                            GvCars.HeaderRow.Cells[2].Attributes["data-hide"] = "phone";
+                            GvCars.HeaderRow.Cells[3].Attributes["data-hide"] = "phone";
+                            GvCars.HeaderRow.TableSection = TableRowSection.TableHeader;
                         }
                     }
                 }
@@ -57,7 +61,7 @@ namespace Web_Application_Registration
             BindDetailsView(TitleID);
         }
 
-        
+
 
         private void BindDetailsView(string CarCode)
         {
@@ -79,6 +83,7 @@ namespace Web_Application_Registration
                 }
             }
         }
+
         protected void DetailsView_OnPageIndexChanging(object sender, DetailsViewPageEventArgs e)
         {
             dvCarsModels.PageIndex = e.NewPageIndex;

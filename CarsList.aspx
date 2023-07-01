@@ -1,69 +1,22 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" MasterPageFile="~/Site1.Master" CodeBehind="CarsList.aspx.cs" Inherits="Web_Application_Registration.CarsList" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-    <%--<style type="text/css">
-        table {
-            border: solid 1px black;
-        }
-
-            table td {
-                border-right: solid 1px black;
-                border-bottom: solid 1px black;
-            }
-
-            table th {
-                border-right: solid 1px black;
-                border-bottom: solid 1px black;
-                text-align: center;
-            }
-
-        .expand {
-            background-position: -14px -187px;
-            height: 14px;
-            width: 13px;
-            background-repeat: no-repeat;
-            background-image: url('DXR.png');
-            cursor: pointer;
-        }
-
-        .arrow-link {
-            font-size: 14px;
-            color: #4800ff;
-            text-decoration: none;
-            padding: 0 5px;
-        }
-
-        .SUBDIV table {
-            border: 0px;
-            border-left: 1px solid black;
-        }
-    </style>
-
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript">
-    </script>
-    <script language="javascript">
-        $(document).ready(function () {
-            $(".SUBDIV table tr:not(:first-child)").not("tr tr").hide();
-            $(".SUBDIV .btncolexp").click(function () {
-                $(this).closest('tr').next('tr').toggle();
-                if ($(this).attr('class').toString() == "btncolexp collapse") {
-                    $(this).addClass('expand');
-                    $(this).removeClass('collapse');
-                }
-                else {
-                    $(this).removeClass('expand');
-                    $(this).addClass('collapse');
-                }
-            });
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/jquery-footable/0.1.0/css/footable.min.css"
+        rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-footable/0.1.0/js/footable.min.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            $('[id*=GvCars]').footable();
+            $('[id*=dvCarsModels]').footable();
         });
-    </script>--%>
+    </script>
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <asp:GridView ID="GvCars" runat="server" AutoGenerateColumns="false" AllowPaging="true" 
-        AllowSorting="true" DataKeyNames="CarId" AutoGenerateSelectButton="true" 
-        OnSelectedIndexChanged="GridView1_OnSelectedIndexChanged" onpage="GridView1_PageIndexChanging">
+    <asp:GridView ID="GvCars" CssClass="footable" runat="server" AutoGenerateColumns="false" AllowPaging="true" PageSize="5"
+        AllowSorting="true" DataKeyNames="CarId" AutoGenerateSelectButton="true"
+        OnSelectedIndexChanged="GridView1_OnSelectedIndexChanged" OnPageIndexChanging="GridView1_PageIndexChanging">
         <Columns>
             <asp:BoundField DataField="CarID" HeaderText="Cae Id" />
             <asp:BoundField DataField="CarCode" HeaderText="Car Code" />
@@ -81,6 +34,17 @@
     <u>Selected Data:</u>
     <br />
     <br />
-    <asp:DetailsView ID="dvCarsModels" runat="server" HeaderText="DetailsView" HeaderStyle-BackColor="#ffff66" HeaderStyle-VerticalAlign="Middle" 
-    AllowPaging="true" OnPageIndexChanging="DetailsView_OnPageIndexChanging"></asp:DetailsView>
+    <asp:DetailsView ID="dvCarsModels" CssClass="footable" runat="server" 
+        HeaderText="Car Model Data" HeaderStyle-Font-Bold="true" HeaderStyle-Font-Size="X-Large"  
+        HeaderStyle-BackColor="#ffff66" HeaderStyle-VerticalAlign="Middle" 
+        AllowPaging="true" OnPageIndexChanging="DetailsView_OnPageIndexChanging">
+        <Fields>
+            <asp:BoundField DataField="ModelId" HeaderText="ModelId" />
+            <asp:BoundField DataField="ModelName" HeaderText="ModelName" />
+            <asp:BoundField DataField="ModelPrice" HeaderText="ModelPrice" />
+            <asp:BoundField DataField="ModelYear" HeaderText="ModelYear" />
+            <asp:BoundField DataField="ModelEngine" HeaderText="ModelEngine" />
+            <asp:BoundField DataField="ModelTransmission" HeaderText="ModelTransmission" />
+        </Fields>
+    </asp:DetailsView>
 </asp:Content>
