@@ -114,6 +114,8 @@
     <Content Include="Images\Cras5.png" />
     <Content Include="Images\Supercar.jpg" />
     <Content Include="Img\CarSell.jpg" />
+    <Content Include="Img\plusSymbol.png" />
+    <Content Include="Img\right-arrow.png" />
     <Content Include="Jquery\cdnjs.cloudflare.com_ajax_libs_font-awesome_6.4.0_js_conflict-detection.min.js" />
     <Content Include="Jquery\cdnjs.cloudflare.com_ajax_libs_font-awesome_6.4.0_js_fontawesome.min.js" />
     <Content Include="Jquery\cdnjs.cloudflare.com_ajax_libs_font-awesome_6.4.0_js_regular.min.js" />
