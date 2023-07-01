@@ -61,68 +61,6 @@
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <%--<div>
-        <asp:ListView ID="lstCars" runat="server" OnItemDataBound="ListView1_ItemDataBound">
-            <LayoutTemplate>
-                <table width="100%">
-                    <tr>
-                        <th width="30px"></th>
-                        <th width="5%">CarID</th>
-                        <th width="5%">CarCode</th>
-                        <th width="15%">CarName</th>
-                        <th width="10%">CarColor</th>
-                        <th width="10%">CarYear</th>
-                        <th width="10%">CarMakerComp</th>
-                        <th width="10%">CarModel</th>
-                        <th width="10%">CarMileage</th>
-                        <th width="10%">CarCondition</th>
-                        <th>CarPrice</th>
-                    </tr>
-                </table>
-                <div runat="server" id="itemPlaceHolder"></div>
-            </LayoutTemplate>
-            <ItemTemplate>
-                <div class="SUBDIV" runat="server">
-                    <table width="100%">
-                        <tr>
-                            <td width="30px">
-                                <div class="btncolexp collapse">
-                                    <asp:LinkButton ID="lnkArrow" runat="server" CssClass="arrow-link">&#9658;
-                                    </asp:LinkButton>
-                                </div>
-                            </td>
-                            <td width="5%"><%#Eval("CarID") %></td>
-                            <td width="5%"><%#Eval("CarCode") %></td>
-                            <td width="15%"><%#Eval("CarName") %></td>
-                            <td width="10%"><%#Eval("CarColor") %></td>
-                            <td width="10%"><%#Eval("CarYear") %></td>
-                            <td width="10%"><%#Eval("CarMakerComp") %></td>
-                            <td width="10%"><%#Eval("CarModel") %></td>
-                            <td width="10%"><%#Eval("CarMileage") %></td>
-                            <td width="10%"><%#Eval("CarCondition") %></td>
-                            <td><%#Eval("CarPrice") %></td>
-                        </tr>
-                        <tr>
-                            <td colspan="6">
-                                <div style="margin: 20px">
-                                    <asp:GridView ID="gvCarModel" runat="server" AutoGenerateColumns="false">
-                                        <Columns>
-                                            <asp:BoundField DataField="ModelId" HeaderText="Model Id" />
-                                            <asp:BoundField DataField="ModelName" HeaderText="Model Name" />
-                                            <asp:BoundField DataField="ModelPrice" HeaderText="Model Price" />
-                                            <asp:BoundField DataField="ModelYear" HeaderText="Model Year" />
-                                            <asp:BoundField DataField="ModelEngine" HeaderText="Model Engine" />
-                                            <asp:BoundField DataField="ModelTransmission" HeaderText="Model Transmission" />
-                                        </Columns>
-                                    </asp:GridView>
-                                </div>
-                            </td>
-                        </tr>
-                    </table>
-                </div>
-            </ItemTemplate>
-        </asp:ListView>
-    </div>--%>
     <asp:GridView ID="GvCars" runat="server" AutoGenerateColumns="false" AllowPaging="true" 
         AllowSorting="true" DataKeyNames="CarId" AutoGenerateSelectButton="true" 
         OnSelectedIndexChanged="GridView1_OnSelectedIndexChanged" onpage="GridView1_PageIndexChanging">
