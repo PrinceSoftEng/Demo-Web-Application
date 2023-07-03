@@ -142,6 +142,7 @@
     <Compile Include="AboutUs.aspx.designer.cs">
       <DependentUpon>AboutUs.aspx</DependentUpon>
     </Compile>
+    <Compile Include="BAL\clsBalCarList.cs" />
     <Compile Include="CarsList.aspx.cs">
       <DependentUpon>CarsList.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -158,6 +159,7 @@
     </Compile>
     <Compile Include="DAL\clsDal.cs" />
     <Compile Include="BAL\clsBal.cs" />
+    <Compile Include="DAL\clsDalCarList.cs" />
     <Compile Include="Model\clsMaster.cs" />
     <Compile Include="Home.aspx.cs">
       <DependentUpon>Home.aspx</DependentUpon>
