@@ -60,13 +60,13 @@ namespace Web_Application_Registration
         protected global::System.Web.UI.WebControls.Label lblCarColor;
 
         /// <summary>
-        /// txtCarColor control.
+        /// ddlCarColor control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtCarColor;
+        protected global::System.Web.UI.WebControls.DropDownList ddlCarColor;
 
         /// <summary>
         /// lblCarYear control.
@@ -78,13 +78,13 @@ namespace Web_Application_Registration
         protected global::System.Web.UI.WebControls.Label lblCarYear;
 
         /// <summary>
-        /// txtCarYear control.
+        /// ddlCarYear control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtCarYear;
+        protected global::System.Web.UI.WebControls.DropDownList ddlCarYear;
 
         /// <summary>
         /// lblCarMakerComp control.
@@ -184,6 +184,24 @@ namespace Web_Application_Registration
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnInSave;
+
+        /// <summary>
+        /// lblCarsSearch control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblCarsSearch;
+
+        /// <summary>
+        /// txtSearch control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtSearch;
 
         /// <summary>
         /// GvCars control.

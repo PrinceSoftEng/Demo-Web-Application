@@ -13,6 +13,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using Web_Application_Registration.BAL;
 using Web_Application_Registration.DAL;
+using Web_Application_Registration.Model;
 
 namespace Web_Application_Registration
 {
@@ -20,6 +21,7 @@ namespace Web_Application_Registration
     {
         clsDalCarList objdalCarList = new clsDalCarList();
         clsBalCarList objbalCarList = new clsBalCarList();  
+        clsCarListMaster objmasterCarList= new clsCarListMaster();
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!this.IsPostBack)
@@ -53,23 +55,23 @@ namespace Web_Application_Registration
             objdalCarList.carCode= Convert.ToInt32(((TextBox)(gvRow.FindControl("txtCarCode"))).Text.Trim());
             objdalCarList.carName= ((TextBox)gvRow.FindControl("txtCarName")).Text.Trim();
             objdalCarList.carColor= ((TextBox)gvRow.FindControl("txtCarColor")).Text.Trim();
-            objdalCarList.carYear= Convert.ToInt32(((TextBox)(gvRow.FindControl("txtCarYear"))).Text.Trim());
+            objdalCarList.carYear= ((TextBox)(gvRow.FindControl("txtCarYear"))).Text.Trim();
             objdalCarList.carMakerComp= ((TextBox)gvRow.FindControl("txtCarMakerComp")).Text.Trim();
             objdalCarList.carModel= ((TextBox)gvRow.FindControl("txtCarModel")).Text.Trim();
             objdalCarList.carMileage = Convert.ToInt32(((TextBox)(gvRow.FindControl("txtCarMileage"))).Text.Trim());
             objdalCarList.carCondition= ((TextBox)gvRow.FindControl("txtCarModel")).Text.Trim();
             objdalCarList.carPrice = Convert.ToDecimal(((TextBox)(gvRow.FindControl("txtCarPrice"))).Text.Trim());
-            int retValue = objbalCarList.UpDateGridView(objdalCarList);
+            int retValue = objmasterCarList.UpDateGridView(objdalCarList);
             if (retValue > 0)
             {
-                ClientScript.RegisterStartupScript(Page.GetType(), "alert", "alert(Data Updated Successfully)",true);
+                ClientScript.RegisterStartupScript(Page.GetType(), "Message", "alert('Data Updated Successfully');", true);
                 GvCars.EditIndex = -1;
                 this.BindGridView();
                 this.clearStrings();
             }
             else
             {
-                ClientScript.RegisterStartupScript(Page.GetType(), "alert", "alert(Data Updation failed)", true);
+                ClientScript.RegisterStartupScript(Page.GetType(), "Message", "alert('Data Updation failed');", true);
             }
             
         }
@@ -84,7 +86,7 @@ namespace Web_Application_Registration
         {
             GridViewRow gvRow = (GridViewRow)GvCars.Rows[e.RowIndex];
             objdalCarList.carId = Convert.ToInt32(GvCars.DataKeys[e.RowIndex].Values[0]);
-            int retValue = objbalCarList.DeleteGridView(objdalCarList);
+            int retValue = objmasterCarList.DeleteGridView(objdalCarList);
             if (retValue > 0)
             {
                 this.BindGridView();
@@ -107,26 +109,44 @@ namespace Web_Application_Registration
         {
             objdalCarList.carCode = Convert.ToInt32(txtCarCode.Text.Trim());
             objdalCarList.carName = txtCarName.Text.Trim();
-            objdalCarList.carColor = txtCarColor.Text.Trim();
-            objdalCarList.carYear = Convert.ToInt32(txtCarYear.Text.Trim());
+            objdalCarList.carColor = ddlCarColor.SelectedItem.Text;
+            objdalCarList.carYear = ddlCarYear.Text.Trim();
             objdalCarList.carMakerComp = txtCarMakerComp.Text.Trim();
             objdalCarList.carModel = txtCarModel.Text.Trim();
             objdalCarList.carMileage = Convert.ToInt32(txtCarMileage.Text.Trim());
             objdalCarList.carCondition = txtCarCondition.Text.Trim();
             objdalCarList.carPrice = Convert.ToDecimal(txtCarPrice.Text.Trim());
-            int retValue = objbalCarList.AddCarsData(objdalCarList);
+            int retValue = objmasterCarList.AddCarsData(objdalCarList);
             if (retValue > 0)
             {
-                ClientScript.RegisterStartupScript(Page.GetType(), "alert", "alert(Data Added Successfully)", true);
+                ClientScript.RegisterStartupScript(Page.GetType(), "Message", "alert('Data Added Successfully');", true);
             }
             this.BindGridView();
             this.clearStrings();
         }
+
+        protected void CarsSearch_OnTextChanged(object sender, EventArgs e)
+        {
+            objdalCarList.carName = txtSearch.Text.Trim();
+            DataSet ds = objmasterCarList.SearchGridView(objdalCarList);
+            if (ds.Tables.Count > 0)
+            {
+                GvCars.DataSource = ds;
+                GvCars.DataBind();
+            }
+            else 
+            {
+                ClientScript.RegisterStartupScript(Page.GetType(), "Message", "alert('No Records Found');", true);
+            }
+
+        }
         #endregion
+
+
         #region BindGridMethod
         private void BindGridView()
         {
-            DataSet ds = objbalCarList.BindGrid();
+            DataSet ds = objmasterCarList.BindGrid();
             if (ds.Tables.Count > 0)
             {
                 GvCars.DataSource = ds;
@@ -138,21 +158,21 @@ namespace Web_Application_Registration
             }
             else 
             {
-                ClientScript.RegisterStartupScript(Page.GetType(),"alert","alert()No Records Found",true);
+                ClientScript.RegisterStartupScript(Page.GetType(), "Message", "alert('No Records Found');", true);
             }
         }
 
         private void clearStrings()
         {
-            txtCarCode.Text = string.Empty;
-            txtCarName.Text = string.Empty;
-            txtCarColor.Text = string.Empty;
-            txtCarYear.Text = string.Empty;
-            txtCarMakerComp.Text=string.Empty;
-            txtCarModel.Text=string.Empty;
-            txtCarMileage.Text=string.Empty;
-            txtCarCondition.Text= string.Empty;
-            txtCarPrice.Text=string.Empty;
+            txtCarCode.Text = " ";
+            txtCarName.Text = " ";
+            ddlCarColor.ClearSelection();
+            ddlCarYear.ClearSelection();
+            txtCarMakerComp.Text=" ";
+            txtCarModel.Text=" ";
+            txtCarMileage.Text=" ";
+            txtCarCondition.Text= " ";
+            txtCarPrice.Text=" ";
         }
         #endregion
 
@@ -164,7 +184,7 @@ namespace Web_Application_Registration
             BindDetailsView(TitleID);
         }
         #endregion
-        #region binddetailsview method
+        #region bind detailsview method
         private void BindDetailsView(string CarCode)
         {
             string constring = ConfigurationManager.ConnectionStrings["constrldb"].ConnectionString;

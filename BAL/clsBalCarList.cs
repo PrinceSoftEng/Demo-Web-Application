@@ -57,6 +57,35 @@ namespace Web_Application_Registration.BAL
             }
         }
 
+        public DataSet SearchGridView(clsDalCarList objdalCar)
+        {
+            string constring = ConfigurationManager.ConnectionStrings["constrldb"].ConnectionString;
+            using (SqlConnection con = new SqlConnection(constring))
+            {
+                using (SqlCommand cmd = new SqlCommand("Cars_SearchCarsByName", con))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    if (!string.IsNullOrEmpty(objdalCar.carName))
+                    {
+                        cmd.Parameters.AddWithValue("@CarName", objdalCar.carName);
+                    }
+                    else 
+                    {
+                        cmd.Parameters.AddWithValue("@CarName",DBNull.Value.ToString());
+                    }
+                    
+                    using (SqlDataAdapter sda = new SqlDataAdapter(cmd))
+                    {
+                        using (DataSet ds = new DataSet())
+                        {
+                            sda.Fill(ds);
+                            return ds;
+                        }
+                    }
+                }
+            }
+        }
+
         public Int32 UpDateGridView(clsDalCarList objdalcar)
         {
             string constring = ConfigurationManager.ConnectionStrings["constrldb"].ConnectionString;

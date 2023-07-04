@@ -12,7 +12,7 @@ namespace Web_Application_Registration.DAL
         private int str_CarCode;
         private string str_CarName;
         private string str_CarColor;
-        private int str_CarYear;
+        private string str_CarYear;
         private string str_CarMakerComp;
         private string str_carModel;
         private int Str_CarMileage;
@@ -24,7 +24,7 @@ namespace Web_Application_Registration.DAL
         public int carCode { get { return str_CarCode; } set { str_CarCode = value; } }
         public string carName { get { return str_CarName; } set { str_CarName = value; } }
         public string carColor { get { return str_CarColor; } set { str_CarColor = value; } }
-        public int carYear { get { return str_CarYear; } set { str_CarYear = value; } }
+        public string carYear { get { return str_CarYear; } set { str_CarYear = value; } }
         public string carMakerComp { get { return str_CarMakerComp; } set { str_CarMakerComp = value; } }
         public string carModel { get { return str_carModel; }set { str_carModel = value; } }
         public int carMileage { get { return Str_CarMileage; } set { Str_CarMileage = value; } }

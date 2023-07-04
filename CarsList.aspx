@@ -5,67 +5,152 @@
         rel="stylesheet" type="text/css" />
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-footable/0.1.0/js/footable.min.js"></script>
-    <script type="text/javascript">
+    <%--<script type="text/javascript">
         $(function () {
             $('[id*=GvCars]').footable();
             $('[id*=dvCarsModels]').footable();
         });
-    </script>
+    </script>--%>
     <style type="text/css">
-        * {
-            padding: 1px;
-            margin: 1px;
+        .container {
+            margin: 2px;
+            padding: 5px;
         }
+
+        table tr {
+            height: 40px;
+            vertical-align: middle;
+            text-align: left;
+            margin-top: 10px;
+        }
+         
+        .myGridStyle
+        {
+            border-collapse:collapse;
+             
+        }
+         
+        .myGridStyle tr th
+        {
+            padding: 8px;
+            color: white;
+            border: 1px solid black;
+        }
+         
+         
+        .myGridStyle tr:nth-child(even)
+        {
+            background-color: #E1FFEF;
+        }
+         
+        .myGridStyle tr:nth-child(odd)
+        {
+            background-color: #00C157;
+        }
+         
+        .myGridStyle td
+        {
+            border:1px solid black;
+            padding: 8px;
+        }
+         
+        .myGridStyle tr:last-child td
+        {
+        }
+
     </style>
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <div class="container"></div>
-    <div class="row">
-        <div class="col">
-            <table>
-                <tr>
-                    <td><b><asp:Label ID="lblCarCode" runat="server" Text="CarCode:"></asp:Label></b></td>
-                    <td><asp:TextBox ID="txtCarCode" runat="server"></asp:TextBox></td>
-                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <b><asp:Label ID="lblCarName" runat="server" Text="CarName:"></asp:Label></b></td>
-                    <td><asp:TextBox ID="txtCarName" runat="server"></asp:TextBox></td>
-                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <b><asp:Label ID="lblCarColor" runat="server" Text="CarColor:"></asp:Label></b></td>
-                    <td><asp:TextBox ID="txtCarColor" runat="server"></asp:TextBox></td>
-                </tr>
-                <tr>
-                    <td><b><asp:Label ID="lblCarYear" runat="server" Text="CarYear:"></asp:Label></b></td>
-                    <td><asp:TextBox ID="txtCarYear" runat="server"></asp:TextBox></td>
-                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <b><asp:Label ID="lblCarMakerComp" runat="server" Text="CarMakerComp:"></asp:Label></b></td>
-                    <td><asp:TextBox ID="txtCarMakerComp" runat="server"></asp:TextBox></td>
-                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <b><asp:Label ID="lblCarModel" runat="server" Text="CarModel:"></asp:Label></b></td>
-                    <td><asp:TextBox ID="txtCarModel" runat="server"></asp:TextBox></td>
-                </tr>
-                <tr>
-                    <td><b><asp:Label ID="lblCarMileage" runat="server" Text="CarMileage:"></asp:Label></b></td>
-                    <td><asp:TextBox ID="txtCarMileage" runat="server"></asp:TextBox></td>
-                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <b><asp:Label ID="lblCarCondition" runat="server" Text="CarCondition:"></asp:Label></b></td>
-                    <td><asp:TextBox ID="txtCarCondition" runat="server"></asp:TextBox></td>
-                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <b><asp:Label ID="lblCarPrice" runat="server" Text="CarPrice:"></asp:Label></b></td>
-                    <td><asp:TextBox ID="txtCarPrice" runat="server"></asp:TextBox></td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td><asp:Button ID="btnInSave" runat="server" Text="Save" OnClick="btnSave_click" /></td>
-                </tr>
-            </table> 
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <table class="">
+                    <tr>
+                        <td><b>
+                            <asp:Label ID="lblCarCode" runat="server" Text="CarCode:"></asp:Label></b></td>
+                        <td>
+                            <asp:TextBox ID="txtCarCode" runat="server"></asp:TextBox></td>
+                        <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <b>
+                            <asp:Label ID="lblCarName" runat="server" Text="CarName:"></asp:Label></b></td>
+                        <td>
+                            <asp:TextBox ID="txtCarName" runat="server"></asp:TextBox></td>
+                        <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <b>
+                            <asp:Label ID="lblCarColor" runat="server" Text="CarColor:"></asp:Label></b></td>
+                        <td>
+                            <asp:DropDownList ID="ddlCarColor" runat="server" class="btn btn-primary dropdown-toggle">
+                                <asp:ListItem Text="----Select Value---"></asp:ListItem>
+                                <asp:ListItem Text="Yellow" Value="Yellow"></asp:ListItem>
+                                <asp:ListItem Text="Blue" Value="Blue"></asp:ListItem>
+                                <asp:ListItem Text="Green" Value="Green"></asp:ListItem>
+                                <asp:ListItem Text="Black" Value="Black"></asp:ListItem>
+                                <asp:ListItem Text="White" Value="White"></asp:ListItem>
+                                <asp:ListItem Text="Red" Value="Red"></asp:ListItem>
+                                <asp:ListItem Text="Silver" Value="Pink"></asp:ListItem>
+                            </asp:DropDownList></td>
+                    </tr>
+                    <tr>
+                        <td><b>
+                            <asp:Label ID="lblCarYear" runat="server" Text="CarYear:"></asp:Label></b></td>
+                        <td>
+                            <asp:DropDownList ID="ddlCarYear" runat="server" class="btn btn-primary dropdown-toggle">
+                                <asp:ListItem Text="----Select Value---"></asp:ListItem>
+                                <asp:ListItem Text="2015" Value="2015"></asp:ListItem>
+                                <asp:ListItem Text="2016" Value="2016"></asp:ListItem>
+                                <asp:ListItem Text="2017" Value="2017"></asp:ListItem>
+                                <asp:ListItem Text="2018" Value="2018"></asp:ListItem>
+                                <asp:ListItem Text="2019" Value="2019"></asp:ListItem>
+                                <asp:ListItem Text="2020" Value="2020"></asp:ListItem>
+                                <asp:ListItem Text="2021" Value="2021"></asp:ListItem>
+                                <asp:ListItem Text="2022" Value="2022"></asp:ListItem>
+                            </asp:DropDownList></td>
+                        <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <b>
+                            <asp:Label ID="lblCarMakerComp" runat="server" Text="CarMakerComp:"></asp:Label></b></td>
+                        <td>
+                            <asp:TextBox ID="txtCarMakerComp" runat="server"></asp:TextBox></td>
+                        <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <b>
+                            <asp:Label ID="lblCarModel" runat="server" Text="CarModel:"></asp:Label></b></td>
+                        <td>
+                            <asp:TextBox ID="txtCarModel" runat="server"></asp:TextBox></td>
+                    </tr>
+                    <tr>
+                        <td><b>
+                            <asp:Label ID="lblCarMileage" runat="server" Text="CarMileage:"></asp:Label></b></td>
+                        <td>
+                            <asp:TextBox ID="txtCarMileage" runat="server"></asp:TextBox></td>
+                        <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <b>
+                            <asp:Label ID="lblCarCondition" runat="server" Text="CarCondition:"></asp:Label></b></td>
+                        <td>
+                            <asp:TextBox ID="txtCarCondition" runat="server"></asp:TextBox></td>
+                        <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <b>
+                            <asp:Label ID="lblCarPrice" runat="server" Text="CarPrice:"></asp:Label></b></td>
+                        <td>
+                            <asp:TextBox ID="txtCarPrice" runat="server"></asp:TextBox></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>
+                            <asp:Button ID="btnInSave" class="btn btn-primary  btn-sm" runat="server" Text="Save" OnClick="btnSave_click" /></td>
+                    </tr>
+                    <tr>
+                        <td><b><asp:Label ID="lblCarsSearch" Text="Search Cars:" runat="server"></asp:Label></b></td>
+                        <td><asp:TextBox ID="txtSearch" runat="server" OnTextChanged="CarsSearch_OnTextChanged" AutoPostBack="true"></asp:TextBox></td>
+                    </tr>
+                </table>
+            </div>
         </div>
     </div>
-    <asp:GridView ID="GvCars" CssClass="footable" runat="server" AutoGenerateColumns="false" AllowPaging="true" PageSize="5"
+    <asp:GridView ID="GvCars" CssClass="myGridStyle" runat="server" AutoGenerateColumns="false" AllowPaging="true" PageSize="5"
         AllowSorting="true" DataKeyNames="CarId" OnRowEditing="GridView_OnRowEditing" OnRowCancelingEdit="GridView_OnRowCancelingEdit"
         OnRowUpdating="GridView_OnRowUpdating" OnRowDeleting="GridView_OnRowDeleting" OnSelectedIndexChanged="GridView1_OnSelectedIndexChanged"
         OnPageIndexChanging="GridView1_PageIndexChanging" OnRowDataBound="GridView_OnRowDataBound" Width="100%">
@@ -153,7 +238,7 @@
     <asp:DetailsView ID="dvCarsModels" CssClass="footable" runat="server" AutoGenerateRows="false"
         HeaderText="Car Model Data" HeaderStyle-Font-Bold="true" HeaderStyle-Font-Size="X-Large"
         HeaderStyle-BackColor="#ffff66" HeaderStyle-VerticalAlign="Middle"
-        AllowPaging="true" OnPageIndexChanging="DetailsView_OnPageIndexChanging">
+        AllowPaging="true" OnPageIndexChanging="DetailsView_OnPageIndexChanging" Width="100%">
         <Fields>
             <asp:BoundField DataField="ModelId" HeaderText="ModelId" />
             <asp:BoundField DataField="ModelName" HeaderText="ModelName" />
