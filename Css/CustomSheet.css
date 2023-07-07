@@ -1,17 +1,13 @@
 ﻿.footerlinks {
-    color:yellow;
-    text-decoration:none !important;
+    color: yellow;
+    text-decoration: none !important;
 }
 
     .footerlinks:hover {
-        color:#ffd800;
+        color: #ffd800;
     }
 
-#footer1 {
-    background: #726b00;
-    position: absolute;
-}
 #footer2 {
-    background:#531f00;
-    position:absolute;
+    background: #531f00;
+    position: absolute;
 }

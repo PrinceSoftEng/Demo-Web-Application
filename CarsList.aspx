@@ -3,14 +3,13 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/jquery-footable/0.1.0/css/footable.min.css"
         rel="stylesheet" type="text/css" />
-    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+    
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-footable/0.1.0/js/footable.min.js"></script>
-    <%--<script type="text/javascript">
+    <script type="text/javascript">
         $(function () {
-            $('[id*=GvCars]').footable();
             $('[id*=dvCarsModels]').footable();
         });
-    </script>--%>
+    </script>
     <style type="text/css">
         .container {
             margin: 2px;
@@ -33,19 +32,20 @@
         .myGridStyle tr th
         {
             padding: 8px;
-            color: white;
+            color: Black;
             border: 1px solid black;
+            background-color:#27c8c8
         }
          
          
         .myGridStyle tr:nth-child(even)
         {
-            background-color: #E1FFEF;
+            background-color: #ede77f;
         }
          
         .myGridStyle tr:nth-child(odd)
         {
-            background-color: #00C157;
+            background-color: #f3ef32;
         }
          
         .myGridStyle td

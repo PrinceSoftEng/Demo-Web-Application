@@ -70,10 +70,10 @@
             <%--<--Main Content placeholder-->--%>
             <!-- Footer -->
             <footer>
-                <div id="footer1" class="container-fluid">
-                    <div class="row">
+                <div style="background:#e42e92;position:relative" class="container-fluid">
+                    <div id="row">
                         <div class="col-xs-12 col-sm-12 col-md-12 text-center">
-                            <p>
+                            <p style="margin-top:0px;margin-bottom:0px;padding:10px;">
                                 <asp:LinkButton class="footerlinks" ID="lblContactUs" runat="server" OnClick="OnContactUs">ContactUs</asp:LinkButton>&nbsp;&nbsp
                                 <asp:LinkButton class="footerlinks" ID="TermsNConditions" runat="server" OnClick="OnTermsnCondition">TermsNConditions</asp:LinkButton>&nbsp;&nbsp
                                 <asp:LinkButton class="footerlinks" ID="lblSocialLinks" runat="server">Social Media Profile</asp:LinkButton>&nbsp;&nbsp
@@ -81,6 +81,7 @@
                         </div>
                     </div>
                 </div>
+                
                 <div id="footer2" class="container-fluid">
                     <div class="row">
                         <div class="col-xs-12 col-sm-12 col-md-12 text-center">
