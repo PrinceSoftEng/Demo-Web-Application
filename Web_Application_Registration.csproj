@@ -120,6 +120,7 @@
     <Content Include="Web.config" />
     <Content Include="ForgetPassword.aspx" />
     <Content Include="ResetPasswordLink.aspx" />
+    <Content Include="Admin\ProgramMaster.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AboutUs.aspx.cs">
@@ -212,6 +213,13 @@
     </Compile>
     <Compile Include="ResetPasswordLink.aspx.designer.cs">
       <DependentUpon>ResetPasswordLink.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\ProgramMaster.aspx.cs">
+      <DependentUpon>ProgramMaster.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\ProgramMaster.aspx.designer.cs">
+      <DependentUpon>ProgramMaster.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
