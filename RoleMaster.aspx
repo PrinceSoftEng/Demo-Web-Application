@@ -49,27 +49,27 @@
                 <asp:BoundField DataField="ProgramList" HeaderText="programList" />
                 <asp:TemplateField HeaderText="Read"  ItemStyle-HorizontalAlign="Center">
                     <ItemTemplate>
-                        <asp:CheckBox ID="chkRead" runat="server" Checked='<%# Eval("Read") %>'  />
+                        <asp:CheckBox ID="chkRead" runat="server" />
                     </ItemTemplate>
                 </asp:TemplateField>
                 <asp:TemplateField HeaderText="Add" ItemStyle-HorizontalAlign="Center">
                     <ItemTemplate>
-                        <asp:CheckBox ID="chkAdd" runat="server" Checked='<%# Eval("Add") %>'  />
+                        <asp:CheckBox ID="chkAdd" runat="server" />
                     </ItemTemplate>
                 </asp:TemplateField>
                 <asp:TemplateField HeaderText="Update" ItemStyle-HorizontalAlign="Center">
                     <ItemTemplate>
-                        <asp:CheckBox ID="chkUpdate" runat="server" Checked='<%# Eval("Update") %>'  />
+                        <asp:CheckBox ID="chkUpdate" runat="server" />
                     </ItemTemplate>
                 </asp:TemplateField>
                 <asp:TemplateField HeaderText="Delete" ItemStyle-HorizontalAlign="Center">
                     <ItemTemplate>
-                        <asp:CheckBox ID="chkDelete" runat="server" Checked='<%# Eval("Delete") %>'  />
+                        <asp:CheckBox ID="chkDelete" runat="server" />
                     </ItemTemplate>
                 </asp:TemplateField>
                 <asp:TemplateField HeaderText="Export" ItemStyle-HorizontalAlign="Center">
                     <ItemTemplate>
-                        <asp:CheckBox ID="chkExport" runat="server" Checked='<%# Eval("Export") %>'  />
+                        <asp:CheckBox ID="chkExport" runat="server" />
                     </ItemTemplate>
                 </asp:TemplateField>
             </Columns>

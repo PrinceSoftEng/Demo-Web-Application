@@ -48,7 +48,7 @@ namespace Web_Application_Registration
             using (SqlConnection con = new SqlConnection(constring))
             {
                 using (SqlCommand cmd = new SqlCommand("select [programList],[Add],[Update],[Delete],[Read],[Export] from [tblPermission] right outer Join [Program_tblMaster] on programId=permissionId", con))
-                { 
+                {
                     using (SqlDataAdapter sda = new SqlDataAdapter(cmd))
                     {
                         using (DataTable dt = new DataTable())
@@ -68,62 +68,15 @@ namespace Web_Application_Registration
             int roleId = Convert.ToInt32(ddlRoles.SelectedValue);
             foreach (GridViewRow gvrow in gvPermissions.Rows)
             {
-                bool permission;
                 CheckBox chkRead = (CheckBox)gvrow.FindControl("chkRead");
-                if (chkRead.Checked)
-                {
-                    permission = true;
-                }
-                else
-                {
-                    permission = false;
-                }
                 CheckBox chkAdd = (CheckBox)gvrow.FindControl("chkAdd");
-                if (chkAdd.Checked)
-                {
-                    permission = true;
-                }
-                else
-                {
-                    permission = false;
-                }
-
                 CheckBox chkUpdate = (CheckBox)gvrow.FindControl("chkUpdate");
-                if (chkUpdate.Checked)
-                {
-                    permission = true;
-                }
-                else
-                {
-                    permission = false;
-                }
-
                 CheckBox chkDelete = (CheckBox)gvrow.FindControl("chkDelete");
-                if (chkDelete.Checked)
-                {
-                    permission = true;
-                }
-                else
-                {
-                    permission = false;
-                }
-
                 CheckBox chkExport = (CheckBox)gvrow.FindControl("chkExport");
-                if (chkExport.Checked)
-                {
-                    permission = true;
-                }
-                else
-                {
-                    permission = false;
-                }
-
-                
-
                 string constr = ConfigurationManager.ConnectionStrings["constr"].ConnectionString;
                 using (SqlConnection con = new SqlConnection(constr))
                 {
-                    SqlCommand cmd = new SqlCommand("INSERT INTO  tblPermission ([roleId],[Read],[Add],[Update],[Delete],[Export],[createdBy],[createdDate],[updatedBy],[updatedDate]) Values(@roleId,@Read,@Add,@Update,@Delete,@Export,@createdBy,@createdDate,@updatedBy,@updatedDate)", con);
+                    SqlCommand cmd = new SqlCommand("INSERT INTO  tblPermission (roleId,[Read],[Add],[Update],[Delete],[Export],[createdBy],[createdDate],[updatedBy],[updatedDate]) Values(@roleId,@Read,@Add,@Update,@Delete,@Export,'Admin','2023-07-19','Admin','2023-07-19')", con);
                     cmd.CommandType = CommandType.Text;
                     cmd.Parameters.AddWithValue("@roleId", roleId);
                     cmd.Parameters.AddWithValue("@Read", chkRead.Checked ? true : false);
@@ -131,17 +84,13 @@ namespace Web_Application_Registration
                     cmd.Parameters.AddWithValue("@Update", chkUpdate.Checked ? true : false);
                     cmd.Parameters.AddWithValue("@Delete", chkDelete.Checked ? true : false);
                     cmd.Parameters.AddWithValue("@Export", chkExport.Checked ? true : false);
-                    cmd.Parameters.AddWithValue("@createdBy", "Admin");
-                    cmd.Parameters.AddWithValue("@createdDate", DateTime.Now);
-                    cmd.Parameters.AddWithValue("@updatedBy", "Admin");
-                    cmd.Parameters.AddWithValue("@updatedDate", DateTime.Now);
                     con.Open();
                     cmd.ExecuteNonQuery();
                     con.Close();
                 }
-                ClientScript.RegisterStartupScript(Page.GetType(), "alert", "alert('Successful')", true);
-                this.ClearControls();
-            }            
+            }
+            ClientScript.RegisterStartupScript(Page.GetType(), "alert", "alert('Successful')", true);
+            this.ClearControls();
         }
 
         private void ClearControls()
@@ -151,14 +100,14 @@ namespace Web_Application_Registration
                 CheckBox chkRead = (CheckBox)gvrow.FindControl("chkRead");
                 CheckBox chkAdd = (CheckBox)gvrow.FindControl("chkAdd");
                 CheckBox chkUpdate = (CheckBox)gvrow.FindControl("chkUpdate");
-                CheckBox chkDelete = (CheckBox)gvrow.FindControl("chkDelete"); 
+                CheckBox chkDelete = (CheckBox)gvrow.FindControl("chkDelete");
                 CheckBox chkExport = (CheckBox)gvrow.FindControl("chkExport");
 
                 chkRead.Checked = false;
-                chkAdd.Checked=false;
+                chkAdd.Checked = false;
                 chkUpdate.Checked = false;
-                chkDelete.Checked=false;
-                chkExport.Checked=false;
+                chkDelete.Checked = false;
+                chkExport.Checked = false;
             }
         }
     }
