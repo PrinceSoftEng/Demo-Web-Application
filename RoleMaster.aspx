@@ -38,9 +38,8 @@
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <div>
-        <asp:Label ID ="lblRoles" runat="server">Select Roles:</asp:Label>
-        <asp:DropDownList ID="ddlRoles" runat="server" style="margin:8px;padding:5px;" AutoPostBack="true" class="btn btn-primary dropdown-toggle" OnSelectedIndexChanged="ddlRole_OnSelectedIndexChanged" >
+    <asp:Label ID="lblRoles" runat="server">Select Roles:</asp:Label>
+        <asp:DropDownList ID="ddlRoles" runat="server" Style="margin: 8px; padding: 5px;" AutoPostBack="true" class="btn btn-primary dropdown-toggle" OnSelectedIndexChanged="ddlRole_OnSelectedIndexChanged">
         </asp:DropDownList>
         <br />
         <hr />
@@ -49,10 +48,10 @@
                 <asp:BoundField DataField="programList" HeaderText="ProgramList" />
                 <asp:TemplateField HeaderText="ProgramList" Visible="false">
                     <ItemTemplate>
-                        <asp:Label ID ="lblProgramList" runat="server" Text='<%# Eval("programId") %>'></asp:Label>
+                        <asp:Label ID="lblProgramList" runat="server" Text='<%# Eval("programId") %>'></asp:Label>
                     </ItemTemplate>
                 </asp:TemplateField>
-                <asp:TemplateField HeaderText="Read"  ItemStyle-HorizontalAlign="Center">
+                <asp:TemplateField HeaderText="Read" ItemStyle-HorizontalAlign="Center">
                     <ItemTemplate>
                         <asp:CheckBox ID="chkRead" runat="server" />
                     </ItemTemplate>
@@ -81,5 +80,4 @@
         </asp:GridView>
         <br />
         <asp:Button ID="btnUpdate" runat="server" Text="Submit" class="btn btn-primary" OnClick="btnSubmit_Click" />
-    </div>
 </asp:Content>

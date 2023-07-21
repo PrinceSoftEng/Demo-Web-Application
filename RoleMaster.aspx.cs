@@ -8,11 +8,16 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using Web_Application_Registration.DAL;
+using Web_Application_Registration.Model;
 
 namespace Web_Application_Registration
 {
     public partial class WebForm3 : System.Web.UI.Page
     {
+        clsMasterRoleMaster objMasterRole = new clsMasterRoleMaster();
+        clsDalRoleMaster objBalRole = new clsDalRoleMaster();
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!this.IsPostBack)
@@ -22,43 +27,26 @@ namespace Web_Application_Registration
             }
         }
 
-        protected void BindRoles()
+        private void BindRoles()
         {
-            string constr = ConfigurationManager.ConnectionStrings["constr"].ConnectionString;
-            using (SqlConnection con = new SqlConnection(constr))
+            DataTable dt = objMasterRole.BindDrowDownRole();
+            if (dt.Rows.Count > 0)
             {
-                SqlCommand cmd = new SqlCommand("SELECT roleId, roleName FROM User_tblRole order by roleName", con);
-                SqlDataAdapter da = new SqlDataAdapter(cmd);
-                DataTable dt = new DataTable();
-                da.Fill(dt);
-
                 ddlRoles.DataSource = dt;
                 ddlRoles.DataTextField = "roleName";
                 ddlRoles.DataValueField = "roleId";
                 ddlRoles.DataBind();
-
-                // Add a default option
-                ddlRoles.Items.Insert(0, new ListItem("-- Select Role --", ""));
             }
+            ddlRoles.Items.Insert(0, new ListItem("-- Select Role --", ""));
         }
 
         private void GridLoadPermission()
         {
-            string constring = ConfigurationManager.ConnectionStrings["constr"].ConnectionString;
-            using (SqlConnection con = new SqlConnection(constring))
+            DataTable dt = objMasterRole.GridLoadPermission();
+            if (dt.Rows.Count > 0)
             {
-                using (SqlCommand cmd = new SqlCommand("select PM.programId,PM.programList,P.[Read],P.[Add],P.[Update],P.[Delete],P.[Export] from tblPermission P Right outer join Program_tblMaster PM on PM.programId=P.permissionId order by programList", con))
-                {
-                    using (SqlDataAdapter sda = new SqlDataAdapter(cmd))
-                    {
-                        using (DataTable dt = new DataTable())
-                        {
-                            sda.Fill(dt);
-                            gvPermissions.DataSource = dt;
-                            gvPermissions.DataBind();
-                        }
-                    }
-                }
+                gvPermissions.DataSource = dt;
+                gvPermissions.DataBind();
             }
         }
 
@@ -66,37 +54,29 @@ namespace Web_Application_Registration
         {
             if (ddlRoles.SelectedIndex > 0)
             {
-                int roleId = Convert.ToInt32(ddlRoles.SelectedValue);
-                string constring = ConfigurationManager.ConnectionStrings["constr"].ConnectionString;
-                using (SqlConnection con = new SqlConnection(constring))
+                objBalRole.roleId = Convert.ToInt32(ddlRoles.SelectedValue);
+                var sdr = objMasterRole.LoadCheckedData(objBalRole);
+                foreach (GridViewRow gvRow in gvPermissions.Rows)
                 {
-                    using (SqlCommand cmd = new SqlCommand("select programId,[Read],[Add],[Update],[Delete],[Export] from [tblPermission] where roleId=@roleId", con))
+                    if (sdr.Read())
                     {
-                        cmd.Parameters.AddWithValue("@roleId", roleId);
-                        con.Open();
-                        using (SqlDataReader sdr = cmd.ExecuteReader())
-                        {
-                            foreach (GridViewRow gvrow in gvPermissions.Rows)
-                            {
-                                if (sdr.Read())
-                                {
-                                    Label lblprogramList = (Label)gvrow.FindControl("lblProgramList");
-                                    CheckBox chkRead = (CheckBox)gvrow.FindControl("chkRead");
-                                    CheckBox chkAdd = (CheckBox)gvrow.FindControl("chkAdd");
-                                    CheckBox chkUpdate = (CheckBox)gvrow.FindControl("chkUpdate");
-                                    CheckBox chkDelete = (CheckBox)gvrow.FindControl("chkDelete");
-                                    CheckBox chkExport = (CheckBox)gvrow.FindControl("chkExport");
+                        Label lblprogramList = (Label)gvRow.FindControl("lblProgramList");
+                        CheckBox chkRead = (CheckBox)gvRow.FindControl("chkRead");
+                        CheckBox chkAdd = (CheckBox)gvRow.FindControl("chkAdd");
+                        CheckBox chkUpdate = (CheckBox)gvRow.FindControl("chkUpdate");
+                        CheckBox chkDelete = (CheckBox)gvRow.FindControl("chkDelete");
+                        CheckBox chkExport = (CheckBox)gvRow.FindControl("chkExport");
 
-                                    lblprogramList.Text = sdr["programId"].ToString();
-                                    chkRead.Checked = Convert.ToBoolean(sdr["Read"]);
-                                    chkAdd.Checked = Convert.ToBoolean(sdr["Add"]);
-                                    chkUpdate.Checked = Convert.ToBoolean(sdr["Update"]);
-                                     chkDelete.Checked = Convert.ToBoolean(sdr["Delete"]);
-                                    chkExport.Checked = Convert.ToBoolean(sdr["Export"]);
-                                }
-                            }
-                        }
-                        con.Close();
+                        lblprogramList.Text = sdr["programId"].ToString();
+                        chkRead.Checked = Convert.ToBoolean(sdr["Read"]);
+                        chkAdd.Checked = Convert.ToBoolean(sdr["Add"]);
+                        chkUpdate.Checked = Convert.ToBoolean(sdr["Update"]);
+                        chkDelete.Checked = Convert.ToBoolean(sdr["Delete"]);
+                        chkExport.Checked = Convert.ToBoolean(sdr["Export"]);
+                    }
+                    else
+                    {
+                        this.ClearControls();
                     }
                 }
             }
@@ -105,33 +85,33 @@ namespace Web_Application_Registration
         protected void btnSubmit_Click(object sender, EventArgs e)
         {
             int roleId = Convert.ToInt32(ddlRoles.SelectedValue);
-            foreach (GridViewRow gvrow in gvPermissions.Rows)
+            foreach (GridViewRow gvRow in gvPermissions.Rows)
             {
-                Label lblprogramList = (Label)gvrow.FindControl("lblProgramList");
-                CheckBox chkRead = (CheckBox)gvrow.FindControl("chkRead");
-                CheckBox chkAdd = (CheckBox)gvrow.FindControl("chkAdd");
-                CheckBox chkUpdate = (CheckBox)gvrow.FindControl("chkUpdate");
-                CheckBox chkDelete = (CheckBox)gvrow.FindControl("chkDelete");
-                CheckBox chkExport = (CheckBox)gvrow.FindControl("chkExport");
-                string constr = ConfigurationManager.ConnectionStrings["constr"].ConnectionString;
-                using (SqlConnection con = new SqlConnection(constr))
+                Label lblprogramList = (Label)gvRow.FindControl("lblProgramList");
+                CheckBox chkRead = (CheckBox)gvRow.FindControl("chkRead");
+                CheckBox chkAdd = (CheckBox)gvRow.FindControl("chkAdd");
+                CheckBox chkUpdate = (CheckBox)gvRow.FindControl("chkUpdate");
+                CheckBox chkDelete = (CheckBox)gvRow.FindControl("chkDelete");
+                CheckBox chkExport = (CheckBox)gvRow.FindControl("chkExport");
+
+                objBalRole.programId = Convert.ToInt32(lblprogramList.Text.Trim());
+                objBalRole.roleId = Convert.ToInt32(roleId);
+                objBalRole.read = Convert.ToByte(chkRead.Checked ? 1 : 0);
+                objBalRole.add = Convert.ToByte(chkAdd.Checked ? 1 : 0);
+                objBalRole.update = Convert.ToByte(chkUpdate.Checked ? 1 : 0);
+                objBalRole.delete = Convert.ToByte(chkDelete.Checked ? 1 : 0);
+                objBalRole.export = Convert.ToByte(chkExport.Checked ? 1 : 0);
+                objBalRole.accessControl = chkRead + "" + chkAdd + "" + chkUpdate + "" + chkDelete + "" + chkExport;
+                int retValue = objMasterRole.AddorUpdate(objBalRole);
+                if (retValue > 0)
                 {
-                    SqlCommand cmd = new SqlCommand("tblPermission_spInsertorUpdatetblPermission", con);
-                    cmd.CommandType = CommandType.StoredProcedure;
-                    cmd.Parameters.AddWithValue("@programId", lblprogramList.Text.Trim());
-                    cmd.Parameters.AddWithValue("@roleId", roleId);
-                    cmd.Parameters.AddWithValue("@Read", chkRead.Checked ? 1 : 0);
-                    cmd.Parameters.AddWithValue("@Add", chkAdd.Checked ? 1 : 0);
-                    cmd.Parameters.AddWithValue("@Update", chkUpdate.Checked ? 1 : 0);
-                    cmd.Parameters.AddWithValue("@Delete", chkDelete.Checked ? 1 : 0);
-                    cmd.Parameters.AddWithValue("@Export", chkExport.Checked ? 1 : 0);
-                    cmd.Parameters.AddWithValue("@AccessControl", Convert.ToByte(chkRead.Checked) + "" + Convert.ToByte(chkAdd.Checked) + "" + Convert.ToByte(chkUpdate.Checked) + "" + Convert.ToByte(chkDelete.Checked) + "" + Convert.ToByte(chkExport.Checked));
-                    con.Open();
-                    cmd.ExecuteNonQuery();
-                    con.Close();
+                    ClientScript.RegisterStartupScript(Page.GetType(), "alert", "alert('Data Pass Successful')", true);
+                }
+                else
+                {
+                    ClientScript.RegisterStartupScript(Page.GetType(), "Message", "alert('Data Pass failed');", true);
                 }
             }
-            ClientScript.RegisterStartupScript(Page.GetType(), "alert", "alert('Data Pass Successful')", true);
             this.ClearControls();
         }
 
