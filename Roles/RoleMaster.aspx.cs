@@ -113,6 +113,7 @@ namespace Web_Application_Registration
                 }
             }
             this.ClearControls();
+            ddlRoles.ClearSelection();
         }
 
         private void ClearControls()

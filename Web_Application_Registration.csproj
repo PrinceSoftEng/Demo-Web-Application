@@ -114,13 +114,14 @@
     <Content Include="Jquery\cdnjs.cloudflare.com_ajax_libs_jquery_3.7.0_jquery.slim.min.js" />
     <Content Include="Login.aspx" />
     <Content Include="Registration.aspx" />
+    <Content Include="Roles\UserToRoles.aspx" />
     <Content Include="Services.aspx" />
     <Content Include="TermsNCondition.aspx" />
     <Content Include="Viewcars.aspx" />
     <Content Include="Web.config" />
     <Content Include="ForgetPassword.aspx" />
     <Content Include="ResetPasswordLink.aspx" />
-    <Content Include="RoleMaster.aspx" />
+    <Content Include="Roles\RoleMaster.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AboutUs.aspx.cs">
@@ -175,6 +176,13 @@
       <DependentUpon>Registration.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Roles\UserToRoles.aspx.cs">
+      <DependentUpon>UserToRoles.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Roles\UserToRoles.aspx.designer.cs">
+      <DependentUpon>UserToRoles.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Services.aspx.cs">
       <DependentUpon>Services.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -217,11 +225,11 @@
     <Compile Include="ResetPasswordLink.aspx.designer.cs">
       <DependentUpon>ResetPasswordLink.aspx</DependentUpon>
     </Compile>
-    <Compile Include="RoleMaster.aspx.cs">
+    <Compile Include="Roles\RoleMaster.aspx.cs">
       <DependentUpon>RoleMaster.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="RoleMaster.aspx.designer.cs">
+    <Compile Include="Roles\RoleMaster.aspx.designer.cs">
       <DependentUpon>RoleMaster.aspx</DependentUpon>
     </Compile>
   </ItemGroup>

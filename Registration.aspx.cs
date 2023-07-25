@@ -20,16 +20,31 @@ namespace Web_Application_Registration
     public partial class CS : System.Web.UI.Page
     {
         clsDal objnewuser = new clsDal();
-        clsMaster objdal = new clsMaster();
         clsBal objbal = new clsBal();
+        clsMaster objdal = new clsMaster();
 
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!this.IsPostBack)
             {
                 this.BindCountry();
+                this.BindRoles();
             }
         }
+
+        private void BindRoles()
+        {
+            DataTable dt = objdal.BindDrowDownRole();
+            if (dt.Rows.Count > 0)
+            {
+                ddlRoles.DataSource = dt;
+                ddlRoles.DataTextField = "roleName";
+                ddlRoles.DataValueField = "roleId";
+                ddlRoles.DataBind();
+            }
+            ddlRoles.Items.Insert(0, new ListItem("-- Select Role --", ""));
+        }
+
         protected void btnCancel_Click(object sender, EventArgs e)
         {
             ClearControls();
@@ -53,24 +68,25 @@ namespace Web_Application_Registration
             objnewuser.isActive = chkIsActive.Checked ? true : false;
             objnewuser.createdBy = txtUsername.Text.Trim();
             objnewuser.modifiedBy = txtUsername.Text.Trim();
+            objnewuser.roleId = Convert.ToInt32(ddlRoles.SelectedValue);
             int retVal = objdal.AddEmployees(objnewuser);
-            SmtpSection smtpSection = (SmtpSection)ConfigurationManager.GetSection("system.net/mailSettings/smtp");
-            MailMessage mailMessage = new MailMessage();
-            mailMessage.From = new MailAddress("princegupta.0627@gmail.com");
-            mailMessage.To.Add(txtEmail.Text);
-            mailMessage.Subject = "Account Activation Email";
-            string ActivationUrl = Server.HtmlEncode("https://localhost:44369/Login.aspx?ID=" + objbal.FetchId(emailId) + "&EmailId=" + emailId);
-            mailMessage.Body = "Hi " + txtUsername.Text.Trim() + "!\n" +
-              "Thanks for showing interest and registring in <a href='https://localhost:44369/Home.aspx'> Angel Automobile<a> " +
-              " Please <a href='" + ActivationUrl + "'>click here to activate</a>  your account and enjoy our services. \nThanks!"; ;
-            SmtpClient smtpClient = new SmtpClient();
-            smtpClient.Port = 587;
-            smtpClient.Host = "smtp.gmail.com";
-            smtpClient.EnableSsl = true;
-            NetworkCredential NetworkCred = new NetworkCredential("princegupta.0627@gmail.com", "Mamydady@092701");
-            smtpClient.UseDefaultCredentials = false;
-            smtpClient.Credentials = NetworkCred;
-            smtpClient.Send(mailMessage);
+            //SmtpSection smtpSection = (SmtpSection)ConfigurationManager.GetSection("system.net/mailSettings/smtp");
+            //MailMessage mailMessage = new MailMessage();
+            //mailMessage.From = new MailAddress("princegupta.0627@gmail.com");
+            //mailMessage.To.Add(txtEmail.Text);
+            //mailMessage.Subject = "Account Activation Email";
+            //string ActivationUrl = Server.HtmlEncode("https://localhost:44369/Login.aspx?ID=" + objbal.FetchId(emailId) + "&EmailId=" + emailId);
+            //mailMessage.Body = "Hi " + txtUsername.Text.Trim() + "!\n" +
+            //  "Thanks for showing interest and registring in <a href='https://localhost:44369/Home.aspx'> Angel Automobile<a> " +
+            //  " Please <a href='" + ActivationUrl + "'>click here to activate</a>  your account and enjoy our services. \nThanks!"; ;
+            //SmtpClient smtpClient = new SmtpClient();
+            //smtpClient.Port = 587;
+            //smtpClient.Host = "smtp.gmail.com";
+            //smtpClient.EnableSsl = true;
+            //NetworkCredential NetworkCred = new NetworkCredential("princegupta.0627@gmail.com", "Mamydady@092701");
+            //smtpClient.UseDefaultCredentials = false;
+            //smtpClient.Credentials = NetworkCred;
+            //smtpClient.Send(mailMessage);
             if (retVal > 0)
             {
                 ClientScript.RegisterStartupScript(Page.GetType(), "Message", "alert('Registration Successful And Activation Mail Has Send To You');window.location='Home.aspx';", true);

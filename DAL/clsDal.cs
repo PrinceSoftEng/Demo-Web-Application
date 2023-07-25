@@ -9,6 +9,7 @@ namespace Web_Application_Registration.BEL
     public class clsDal
     {
         private int Id;
+        private int str_RoleId;
         private string str_UserName;
         private string str_FirstName;
         private string str_MiddleName;
@@ -29,6 +30,11 @@ namespace Web_Application_Registration.BEL
         {
             get { return Id; } 
             set { Id = value; }  
+        }
+        public int roleId
+        {
+            get { return str_RoleId; }
+            set { str_RoleId = value; }
         }
         public string userName
         {

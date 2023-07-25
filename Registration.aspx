@@ -11,11 +11,11 @@
             background-size: cover;
         }
     </style>
-    
+
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <script type = "text/javascript">
+    <script type="text/javascript">
         function ValidateCheckBox(sender, args) {
             if (document.getElementById("chkTerms").checked == true) {
                 args.IsValid = true;
@@ -23,7 +23,7 @@
                 args.IsValid = false;
             }
         }
-    </script> 
+    </script>
     <table style="margin: 2% 25% 2% 25%;">
         <tr style="background: Transparent; font-variant: small-caps; font-weight: 600; color: orange;">
             <td>
@@ -124,6 +124,15 @@
                 </asp:DropDownList></td>
             <td></td>
         </tr>
+        <tr>
+            <td style="background: Transparent; font-variant: small-caps; font-weight: 600; color: orange;">
+                <asp:Label ID="Label1" runat="server" Text="Select Roles:"></asp:Label><span style="color: red">*</span></td>
+            <td style="background: transparent; opacity: 0.70">
+                <asp:DropDownList ID="ddlRoles" runat="server" Style="margin: 8px; padding: 5px;" AutoPostBack="true" class="btn btn-primary dropdown-toggle">
+                </asp:DropDownList>
+            <td></td>
+
+        </tr>
         <tr style="background: Transparent; font-variant: small-caps; font-weight: 600; color: orange;">
             <td>
                 <asp:Label ID="lblPassword" runat="server" Text="Password:"></asp:Label><span style="color: red">*</span>
@@ -156,11 +165,13 @@
         </tr>
         <tr style="background: Transparent; font-variant: small-caps; font-weight: 600; color: orange;">
             <td></td>
-            <td style="background: Transparent; font-variant: small-caps; font-weight: 600; color: orange;">               
-                <asp:CheckBox ID="chkTerms" ClientIDMode="Static" runat="server" /> I agree to the terms
+            <td style="background: Transparent; font-variant: small-caps; font-weight: 600; color: orange;">
+                <asp:CheckBox ID="chkTerms" ClientIDMode="Static" runat="server" />
+                I agree to the terms
             </td>
-            <td><asp:CustomValidator ID="vTerms" runat="server" ForeColor="Red" Display="Static" ErrorMessage="<br/>Terms and Conditions are required." 
-                EnableClientScript="true" ClientValidationFunction="ValidateCheckBox"></asp:CustomValidator>
+            <td>
+                <asp:CustomValidator ID="vTerms" runat="server" ForeColor="Red" Display="Static" ErrorMessage="<br/>Terms and Conditions are required."
+                    EnableClientScript="true" ClientValidationFunction="ValidateCheckBox"></asp:CustomValidator>
             </td>
         </tr>
         <tr>
