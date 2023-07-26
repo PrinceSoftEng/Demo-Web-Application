@@ -114,6 +114,7 @@
     <Content Include="Jquery\cdnjs.cloudflare.com_ajax_libs_jquery_3.7.0_jquery.slim.min.js" />
     <Content Include="Login.aspx" />
     <Content Include="Registration.aspx" />
+    <Content Include="Roles\CarSell.jpg" />
     <Content Include="Roles\UserToRoles.aspx" />
     <Content Include="Services.aspx" />
     <Content Include="TermsNCondition.aspx" />
@@ -133,6 +134,7 @@
     </Compile>
     <Compile Include="BAL\clsBalCarList.cs" />
     <Compile Include="BAL\clsBalRoleMaster.cs" />
+    <Compile Include="BAL\clsBalUsertoRole.cs" />
     <Compile Include="CarsList.aspx.cs">
       <DependentUpon>CarsList.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -151,6 +153,7 @@
     <Compile Include="BAL\clsBal.cs" />
     <Compile Include="DAL\clsDalCarList.cs" />
     <Compile Include="DAL\clsDalRoleMaster.cs" />
+    <Compile Include="DAL\clsDalUsertoRole.cs" />
     <Compile Include="Model\clsCarListMaster.cs" />
     <Compile Include="Model\clsMaster.cs" />
     <Compile Include="Home.aspx.cs">
@@ -168,6 +171,7 @@
       <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
     <Compile Include="Model\clsMasterRoleMaster.cs" />
+    <Compile Include="Model\clsMasterUsertoRole.cs" />
     <Compile Include="Registration.aspx.cs">
       <DependentUpon>Registration.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
