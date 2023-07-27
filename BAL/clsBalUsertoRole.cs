@@ -33,6 +33,25 @@ namespace Web_Application_Registration.BAL
             }
         }
 
+        public DataTable BindDropDownList()
+        {
+            using (SqlConnection con = new SqlConnection(constring))
+            {
+                using (SqlCommand cmd = new SqlCommand("Select Id,UserName from UserRegTable", con))
+                {
+                    cmd.CommandType = CommandType.Text;
+                    using (SqlDataAdapter sda = new SqlDataAdapter(cmd))
+                    {
+                        using (DataTable dt = new DataTable())
+                        {
+                            sda.Fill(dt);
+                            return dt;
+                        }
+                    }
+                }
+            }
+        }
+
         public int AddRoles(clsDalUsertoRole objdalUTR)
         {
             using (SqlConnection con = new SqlConnection(constring))
@@ -87,27 +106,27 @@ namespace Web_Application_Registration.BAL
             }
         }
 
-        [WebMethod]
-        public List<string> GetAutoComplete(string searchTerm)
-        {
-            List<string> roles = new List<string>();
-            using (SqlConnection con = new SqlConnection(constring))
-            {
-                using (SqlCommand cmd = new SqlCommand("Select UserName From UserRegTable where UserName LIKE @SearchTerm +'%'", con))
-                {
-                    cmd.Parameters.AddWithValue("@SearchTerm", searchTerm);
-                    con.Open();
-                    using (SqlDataReader sdr = cmd.ExecuteReader())
-                    {
-                        while (sdr.Read())
-                        {
-                            roles.Add(sdr["UserName"].ToString());
-                        }
-                    }
-                }
-            }
-            return roles;
-        }
+        //[WebMethod]
+        //public List<string> GetAutoComplete(string searchTerm)
+        //{
+        //    List<string> roles = new List<string>();
+        //    using (SqlConnection con = new SqlConnection(constring))
+        //    {
+        //        using (SqlCommand cmd = new SqlCommand("Select UserName as Name From UserRegTable where UserName like @SearchTerm +'%'", con))
+        //        {
+        //            cmd.Parameters.AddWithValue("@SearchTerm", searchTerm.Trim());
+        //            con.Open();
+        //            using (SqlDataReader sdr = cmd.ExecuteReader())
+        //            {
+        //                while (sdr.Read())
+        //                {
+        //                    roles.Add(sdr["Name"].ToString());
+        //                }
+        //            }
+        //        }
+        //    }
+        //    return roles;
+        //}
 
         public DataTable BindRoleForCheckBoxList()
         {
@@ -122,6 +141,28 @@ namespace Web_Application_Registration.BAL
                         {
                             sda.Fill(dt);
                             return dt;
+                        }
+                    }
+                }
+            }
+        }
+
+        public IDataReader LoadCheckedData(clsDalUsertoRole objDalUTR)
+        {
+            using (SqlConnection con = new SqlConnection(constring))
+            {
+                con.Open();
+                using (SqlCommand cmd = new SqlCommand("select roleId,roleName from User_tblRole where roleId=@roleId", con))
+                {
+                    cmd.Parameters.AddWithValue("@roleId", objDalUTR.roleId);
+                    {
+                        using (SqlDataReader sdr = cmd.ExecuteReader())
+                        {
+                            using (DataTable dt = new DataTable())
+                            {
+                                dt.Load(sdr);
+                                return dt.CreateDataReader();
+                            }
                         }
                     }
                 }

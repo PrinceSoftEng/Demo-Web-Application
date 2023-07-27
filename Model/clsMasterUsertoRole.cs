@@ -36,17 +36,28 @@ namespace Web_Application_Registration.Model
             return  objBalUTR.CheckRoleIdExist(objDalUTR);
         }
 
+        //public List<string> GetAutoComplete(string searchTerm)
+        //{
+        //    clsBalUsertoRole objBalUTR = new clsBalUsertoRole();
+        //    return objBalUTR.GetAutoComplete(searchTerm);
+        //}
+
         public DataTable BindRoleForCheckBoxList()
         {
             clsBalUsertoRole objBalUTR = new clsBalUsertoRole();
             return objBalUTR.BindRoleForCheckBoxList();
         }
 
-        [WebMethod]
-        public List<string> GetAutoComplete(string searchTerm)
+        public DataTable BindDropDownUserName()
         {
             clsBalUsertoRole objBalUTR = new clsBalUsertoRole();
-            return objBalUTR.GetAutoComplete(searchTerm);
+            return objBalUTR.BindDropDownList();
+        }
+
+        public IDataReader LoadCheckedData(clsDalUsertoRole objDalUTR)
+        {
+            clsBalUsertoRole objBalUTR = new clsBalUsertoRole();
+            return objBalUTR.LoadCheckedData(objDalUTR);
         }
     }
 }

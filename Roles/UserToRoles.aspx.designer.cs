@@ -69,13 +69,13 @@ namespace Web_Application_Registration.Roles
         protected global::System.Web.UI.WebControls.GridView gvRoles;
 
         /// <summary>
-        /// txtSearch control.
+        /// ddlUserName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtSearch;
+        protected global::System.Web.UI.WebControls.DropDownList ddlUserName;
 
         /// <summary>
         /// chkRoles control.

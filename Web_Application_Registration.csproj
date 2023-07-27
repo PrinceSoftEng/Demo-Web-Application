@@ -43,6 +43,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AjaxControlToolkit.Installer.20.1.0">
+      <HintPath>..\..\..\Program Files\Microsoft Visual Studio\2022\Community\AjaxControlToolkit.Installer.20.1.0.exe</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
@@ -74,17 +77,52 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="AboutUs.aspx" />
-    <Content Include="Bootstrap\cdnjs.cloudflare.com_ajax_libs_bootstrap_5.3.0_css_bootstrap-grid.min.css" />
-    <Content Include="Bootstrap\cdnjs.cloudflare.com_ajax_libs_bootstrap_5.3.0_css_bootstrap-grid.rtl.min.css" />
-    <Content Include="Bootstrap\cdnjs.cloudflare.com_ajax_libs_bootstrap_5.3.0_css_bootstrap-reboot.min.css" />
-    <Content Include="Bootstrap\cdnjs.cloudflare.com_ajax_libs_bootstrap_5.3.0_css_bootstrap-reboot.rtl.min.css" />
-    <Content Include="Bootstrap\cdnjs.cloudflare.com_ajax_libs_bootstrap_5.3.0_css_bootstrap-utilities.min.css" />
-    <Content Include="Bootstrap\cdnjs.cloudflare.com_ajax_libs_bootstrap_5.3.0_css_bootstrap-utilities.rtl.min.css" />
-    <Content Include="Bootstrap\cdnjs.cloudflare.com_ajax_libs_bootstrap_5.3.0_css_bootstrap.min.css" />
-    <Content Include="Bootstrap\cdnjs.cloudflare.com_ajax_libs_bootstrap_5.3.0_css_bootstrap.rtl.min.css" />
-    <Content Include="Bootstrap\cdnjs.cloudflare.com_ajax_libs_bootstrap_5.3.0_js_bootstrap.bundle.min.js" />
-    <Content Include="Bootstrap\cdnjs.cloudflare.com_ajax_libs_bootstrap_5.3.0_js_bootstrap.esm.min.js" />
-    <Content Include="Bootstrap\cdnjs.cloudflare.com_ajax_libs_bootstrap_5.3.0_js_bootstrap.min.js" />
+    <Content Include="bin\AjaxControlToolkit.dll" />
+    <Content Include="bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll" />
+    <Content Include="bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml" />
+    <Content Include="bin\roslyn\csc.exe" />
+    <Content Include="bin\roslyn\csi.exe" />
+    <Content Include="bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll" />
+    <Content Include="bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll" />
+    <Content Include="bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll" />
+    <Content Include="bin\roslyn\Microsoft.CodeAnalysis.dll" />
+    <Content Include="bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll" />
+    <Content Include="bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll" />
+    <Content Include="bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll" />
+    <Content Include="bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll" />
+    <Content Include="bin\roslyn\Microsoft.Win32.Primitives.dll" />
+    <Content Include="bin\roslyn\System.AppContext.dll" />
+    <Content Include="bin\roslyn\System.Collections.Immutable.dll" />
+    <Content Include="bin\roslyn\System.Console.dll" />
+    <Content Include="bin\roslyn\System.Diagnostics.DiagnosticSource.dll" />
+    <Content Include="bin\roslyn\System.Diagnostics.FileVersionInfo.dll" />
+    <Content Include="bin\roslyn\System.Diagnostics.StackTrace.dll" />
+    <Content Include="bin\roslyn\System.Globalization.Calendars.dll" />
+    <Content Include="bin\roslyn\System.IO.Compression.dll" />
+    <Content Include="bin\roslyn\System.IO.Compression.ZipFile.dll" />
+    <Content Include="bin\roslyn\System.IO.FileSystem.dll" />
+    <Content Include="bin\roslyn\System.IO.FileSystem.Primitives.dll" />
+    <Content Include="bin\roslyn\System.Net.Http.dll" />
+    <Content Include="bin\roslyn\System.Net.Sockets.dll" />
+    <Content Include="bin\roslyn\System.Reflection.Metadata.dll" />
+    <Content Include="bin\roslyn\System.Runtime.InteropServices.RuntimeInformation.dll" />
+    <Content Include="bin\roslyn\System.Security.Cryptography.Algorithms.dll" />
+    <Content Include="bin\roslyn\System.Security.Cryptography.Encoding.dll" />
+    <Content Include="bin\roslyn\System.Security.Cryptography.Primitives.dll" />
+    <Content Include="bin\roslyn\System.Security.Cryptography.X509Certificates.dll" />
+    <Content Include="bin\roslyn\System.Text.Encoding.CodePages.dll" />
+    <Content Include="bin\roslyn\System.Threading.Tasks.Extensions.dll" />
+    <Content Include="bin\roslyn\System.ValueTuple.dll" />
+    <Content Include="bin\roslyn\System.Xml.ReaderWriter.dll" />
+    <Content Include="bin\roslyn\System.Xml.XmlDocument.dll" />
+    <Content Include="bin\roslyn\System.Xml.XPath.dll" />
+    <Content Include="bin\roslyn\System.Xml.XPath.XDocument.dll" />
+    <Content Include="bin\roslyn\vbc.exe" />
+    <Content Include="bin\roslyn\VBCSCompiler.exe" />
+    <Content Include="bin\TIPLEncDec.dll" />
+    <Content Include="bin\TIPLEncDecStd.dll" />
+    <Content Include="bin\Web_Application_Registration.dll" />
+    <Content Include="bin\Web_Application_Registration.pdb" />
     <Content Include="CarsList.aspx" />
     <Content Include="ContactUs.aspx" />
     <Content Include="Css\AboutUsCss.css" />
@@ -103,15 +141,6 @@
     <Content Include="Img\CarSell.jpg" />
     <Content Include="Img\plusSymbol.png" />
     <Content Include="Img\right-arrow.png" />
-    <Content Include="Jquery\cdnjs.cloudflare.com_ajax_libs_font-awesome_6.4.0_js_conflict-detection.min.js" />
-    <Content Include="Jquery\cdnjs.cloudflare.com_ajax_libs_font-awesome_6.4.0_js_fontawesome.min.js" />
-    <Content Include="Jquery\cdnjs.cloudflare.com_ajax_libs_font-awesome_6.4.0_js_regular.min.js" />
-    <Content Include="Jquery\cdnjs.cloudflare.com_ajax_libs_font-awesome_6.4.0_js_solid.min.js" />
-    <Content Include="Jquery\cdnjs.cloudflare.com_ajax_libs_font-awesome_6.4.0_js_v4-shims.min.js" />
-    <Content Include="Jquery\cdnjs.cloudflare.com_ajax_libs_jquery_3.7.0_jquery.js" />
-    <Content Include="Jquery\cdnjs.cloudflare.com_ajax_libs_jquery_3.7.0_jquery.min.js" />
-    <Content Include="Jquery\cdnjs.cloudflare.com_ajax_libs_jquery_3.7.0_jquery.slim.js" />
-    <Content Include="Jquery\cdnjs.cloudflare.com_ajax_libs_jquery_3.7.0_jquery.slim.min.js" />
     <Content Include="Login.aspx" />
     <Content Include="Registration.aspx" />
     <Content Include="Roles\CarSell.jpg" />
@@ -238,6 +267,18 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="bin\AjaxControlToolkit.dll.refresh" />
+    <Content Include="bin\roslyn\csc.exe.config" />
+    <Content Include="bin\roslyn\csc.rsp" />
+    <Content Include="bin\roslyn\csi.exe.config" />
+    <Content Include="bin\roslyn\csi.rsp" />
+    <Content Include="bin\roslyn\Microsoft.CSharp.Core.targets" />
+    <Content Include="bin\roslyn\Microsoft.Managed.Core.targets" />
+    <Content Include="bin\roslyn\Microsoft.VisualBasic.Core.targets" />
+    <Content Include="bin\roslyn\vbc.exe.config" />
+    <Content Include="bin\roslyn\vbc.rsp" />
+    <Content Include="bin\roslyn\VBCSCompiler.exe.config" />
+    <Content Include="bin\Web_Application_Registration.dll.config" />
     <None Include="packages.config" />
     <Content Include="Site1.Master" />
     <None Include="Web.Debug.config">

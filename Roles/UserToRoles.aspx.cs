@@ -12,18 +12,25 @@ using System.Diagnostics.Contracts;
 using Web_Application_Registration.Model;
 using Web_Application_Registration.DAL;
 using System.Web.Services;
+using System.EnterpriseServices;
+using System.Net.NetworkInformation;
+using System.Web.Configuration;
+using Web_Application_Registration.BAL;
+using System.Text;
+using System.Data.SqlTypes;
 
 namespace Web_Application_Registration.Roles
 {
     public partial class UserToRoles : System.Web.UI.Page
     {
-        
+
         clsDalUsertoRole objDalUTR = new clsDalUsertoRole();
 
         protected void Page_Load(object sender, EventArgs e)
         {
             this.BindGridViewRoles();
             this.BindRoleForCheckBoxList();
+            this.BindDropDownList();
         }
 
         protected void btnSave_click(object sender, EventArgs e)
@@ -76,38 +83,31 @@ namespace Web_Application_Registration.Roles
             }
         }
 
-        [WebMethod]
-        public static List<string> GetRoleNameBySearch(string searchTerm)
+        
+
+        
+        //[WebMethod]
+        //public static List<string> GetRoleNameBySearch(string searchTerm)
+        //{
+        //    clsMasterUsertoRole objMastUTR = new clsMasterUsertoRole();
+        //    List<string> data = objMastUTR.GetAutoComplete(searchTerm);
+        //    return data;
+        //}
+
+        private void BindDropDownList()
         {
             clsMasterUsertoRole objMastUTR = new clsMasterUsertoRole();
-            List<string> data = objMastUTR.GetAutoComplete(searchTerm);
-            return data;
+            DataTable dt = objMastUTR.BindDropDownUserName();
+            if (dt.Rows.Count > 0)
+            {
+                ddlUserName.DataSource = dt;
+                ddlUserName.DataTextField = "UserName";
+                ddlUserName.DataValueField = "Id";
+                ddlUserName.DataBind();
+            }
+            ddlUserName.Items.Insert(0, new ListItem("---Select UserName---", "0"));
         }
 
-        //[WebMethod]
-        //public static List<string> GetRolesName(string prefixText)
-        //{
-        //    List<string> roles = new List<string>();
-        //    string constring = ConfigurationManager.ConnectionStrings["constr"].ConnectionString;
-        //    using (SqlConnection con = new SqlConnection(constring))
-        //    {
-        //        using (SqlCommand cmd = new SqlCommand("Select UserName From UserRegTable where UserName like @SearchText +'%'", con))
-        //        {
-        //            con.Open();
-        //            cmd.CommandType = System.Data.CommandType.Text;
-        //            cmd.Parameters.AddWithValue("@SearchText", prefixText);
-        //            using (SqlDataReader sdr = cmd.ExecuteReader())
-        //            {
-        //                while (sdr.Read())
-        //                {
-        //                    roles.Add(sdr["UserName"].ToString());
-        //                }
-        //            }
-        //            con.Close();
-        //        }
-        //    }
-        //    return roles;
-        //}
         private void BindRoleForCheckBoxList()
         {
             clsMasterUsertoRole objMastUTR = new clsMasterUsertoRole();
@@ -119,7 +119,7 @@ namespace Web_Application_Registration.Roles
                 chkRoles.DataValueField = "roleId";
                 chkRoles.DataBind();
             }
-            else 
+            else
             {
                 chkRoles.DataSource = "No Data Available";
                 chkRoles.DataBind();
@@ -147,5 +147,27 @@ namespace Web_Application_Registration.Roles
             txtId.Text = string.Empty;
             txtRoleName.Text = string.Empty;
         }
+
+        //[System.Web.Services.WebMethod]
+        //public static string[] GetCheckedItemsFromDatabase(string itemId)
+        //{
+        //    // Code to fetch the checked items from the database based on the selected dropdown value
+        //    // Example code using SqlConnection and SqlCommand
+        //    string connectionString = "constr";
+        //    using (SqlConnection connection = new SqlConnection(connectionString))
+        //    {
+        //        string query = "Select Id,UserName from UserRegTable WHERE Id = @Id";
+        //        SqlCommand command = new SqlCommand(query, connection);
+        //        command.Parameters.AddWithValue("@Id", itemId);
+        //        connection.Open();
+        //        SqlDataReader reader = command.ExecuteReader();
+        //        var checkedItems = new List<string>();
+        //        while (reader.Read())
+        //        {
+        //            checkedItems.Add(reader["UserName"].ToString());
+        //        }
+        //        return checkedItems.ToArray();
+        //    }
+        //}
     }
 }
