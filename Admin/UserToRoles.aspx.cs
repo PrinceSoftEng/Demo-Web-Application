@@ -24,7 +24,7 @@ namespace Web_Application_Registration.Roles
 {
     public partial class UserToRoles : System.Web.UI.Page
     {
-
+        clsMasterUsertoRole objMastUTR = new clsMasterUsertoRole();
         clsDalUsertoRole objDalUTR = new clsDalUsertoRole();
         private string constring = ConfigurationManager.ConnectionStrings["constr"].ConnectionString;
 
@@ -32,17 +32,16 @@ namespace Web_Application_Registration.Roles
         {
             if (!this.IsPostBack)
             {
+                this.BindGridViewUTR();
                 this.BindGridViewRoles();
                 this.BindUserDropDownList();
                 this.BindRolesRadioButtonList();
-                this.BindGridViewUTR();
             }
         }
 
         //Binding DrodownList Of User
         private void BindUserDropDownList()
         {
-            clsMasterUsertoRole objMastUTR = new clsMasterUsertoRole();
             DataTable dt = objMastUTR.BindUserDropdown();
             if (dt.Rows.Count > 0)
             {
@@ -55,7 +54,6 @@ namespace Web_Application_Registration.Roles
         //Bind RadioButtonList With Roles
         private void BindRolesRadioButtonList()
         {
-            clsMasterUsertoRole objMastUTR = new clsMasterUsertoRole();
             DataTable dt = objMastUTR.BindRolesRadioButtonList();
             if (dt.Rows.Count > 0)
             {
@@ -67,7 +65,6 @@ namespace Web_Application_Registration.Roles
         //GridViewData Of User to Role
         private void BindGridViewUTR()
         {
-            clsMasterUsertoRole objMastUTR = new clsMasterUsertoRole();
             DataTable dt = objMastUTR.BindGrid();
             if (dt.Rows.Count > 0)
             {
@@ -110,7 +107,6 @@ namespace Web_Application_Registration.Roles
         //insert Data in UserToRole table 
         private void InsertUserToRoleMapping(int userId, int roleId)
         {
-            clsMasterUsertoRole objMastUTR = new clsMasterUsertoRole();
             using (SqlConnection con = new SqlConnection(constring))
             {
                 using (SqlCommand cmd = new SqlCommand("Insert into tblUserToRole(UserId,roleId) values(@UserId,@roleId) ", con))
@@ -159,13 +155,13 @@ namespace Web_Application_Registration.Roles
         {
             if (!string.IsNullOrEmpty(txtId.Text))
             {
-                clsMasterUsertoRole objMastUTR = new clsMasterUsertoRole();
                 objDalUTR.roleId = Convert.ToInt32(txtId.Text.Trim());
                 var sdr = objMastUTR.CheckRoleIdExist(objDalUTR);
                 if (sdr.Read())
                 {
                     lblStatus.ForeColor = System.Drawing.Color.OrangeRed;
-                    lblStatus.Text = "RoleId already Exists";
+                    lblStatus.Text = "RoleId Already Exists";
+                    //ClientScript.RegisterStartupScript(Page.GetType(), "Message", "alert('Role Already Exists');", true);
                 }
                 else
                 {
@@ -177,7 +173,6 @@ namespace Web_Application_Registration.Roles
         //Bind GridView for RoleTable 
         private void BindGridViewRoles()
         {
-            clsMasterUsertoRole objMastUTR = new clsMasterUsertoRole();
             DataTable dt = objMastUTR.BindGridViewRoles();
             if (dt.Rows.Count > 0)
             {
@@ -194,7 +189,6 @@ namespace Web_Application_Registration.Roles
         //Insert Roles In UserRoles table 
         protected void btnSave_click(object sender, EventArgs e)
         {
-            clsMasterUsertoRole objMastUTR = new clsMasterUsertoRole();
             objDalUTR.roleId = Convert.ToInt32(txtId.Text.Trim());
             objDalUTR.roleName = txtRoleName.Text.Trim();
             int retValue = objMastUTR.AddRoles(objDalUTR);
@@ -202,6 +196,7 @@ namespace Web_Application_Registration.Roles
             {
                 ClientScript.RegisterStartupScript(Page.GetType(), "Message", "alert('Role Inserted Successfully');", true);
                 this.BindGridViewRoles();
+                this.BindRolesRadioButtonList();
                 this.ClearData();
             }
             else
@@ -213,12 +208,12 @@ namespace Web_Application_Registration.Roles
         //Delete role on the roleTable 
         protected void btnDelete_click(object sender, EventArgs e)
         {
-            clsMasterUsertoRole objMastUTR = new clsMasterUsertoRole();
             objDalUTR.roleId = Convert.ToInt32(txtId.Text.Trim());
             int retValue = objMastUTR.DeleteRole(objDalUTR);
             if (retValue > 0)
             {
                 this.BindGridViewRoles();
+                this.BindRolesRadioButtonList();
                 lblStatus.Visible = false;
                 this.ClearData();
             }

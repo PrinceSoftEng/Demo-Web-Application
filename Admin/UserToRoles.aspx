@@ -31,7 +31,7 @@
                     <td><b>Role Id:</b></td>
                     <td>
                         <asp:TextBox ID="txtId" runat="server" OnTextChanged="txtUserName_TextChange" AutoPostBack="true"></asp:TextBox>
-                        <asp:Label ID="lblStatus" runat="server"></asp:Label></td>
+                        <b><asp:Label ID="lblStatus" runat="server"></asp:Label></b></td>
                 </tr>
                 <tr>
                     <td><b>Role Name:</b></td>
@@ -47,7 +47,7 @@
                 </tr>
             </table>
         </div>
-        <div class="column" style="appearance: auto; border-collapse: separate;">
+        <div class="column" style="appearance: auto; border-collapse: separate;margin: 40px 0px 0px 20px;">
             <asp:GridView ID="gvRoles" runat="server" AutoGenerateColumns="false" Width="100%">
                 <Columns>
                     <asp:BoundField DataField="roleId" HeaderText="Role Id" />
@@ -60,21 +60,31 @@
     <div>
         <b>
             <asp:Label ID="lblUsers" runat="server" Text="Select Users:"></asp:Label></b>
-        <asp:DropDownList ID="ddlUsers" runat="server" DataTextField="UserName" DataValueField="UserId" Width="12%"></asp:DropDownList>
+        <asp:DropDownList ID="ddlUsers" runat="server" DataTextField="UserName" DataValueField="UserId">
+        </asp:DropDownList>
         <script>
             $('#<%=ddlUsers.ClientID%>').chosen();
         </script>
         <br />
-        <b>
-            <asp:Label ID="lblRoles" runat="server" Text="Select Roles:"></asp:Label></b>
-        <asp:RadioButtonList ID="rblRoles" runat="server" DataTextField="roleName" DataValueField="roleId"></asp:RadioButtonList>
-        <asp:GridView ID="gvUTR" runat="server" AutoGenerateColumns="false">
-            <Columns>
-                <asp:BoundField DataField="Id" HeaderText="Id" />
-                <asp:BoundField DataField="UserId" HeaderText="User Id" />
-                <asp:BoundField DataField="roleId" HeaderText="Role Id" />
-            </Columns>
-        </asp:GridView>
+        <div style="float: left">
+            <b>
+                <asp:Label ID="lblRoles" runat="server" Text="Select Roles:"></asp:Label></b>
+        </div>
+        <div style="float:left; margin: -4px 1000px 0 2px; width: 12%">
+            <asp:RadioButtonList ID="rblRoles" runat="server" RepeatColumns="5" RepeatDirection="Vertical"
+                DataTextField="roleName" DataValueField="roleId">
+            </asp:RadioButtonList>
+        </div>
+        <div>
+            <asp:GridView ID="gvUTR" runat="server" AutoGenerateColumns="false">
+                <Columns>
+                    <asp:BoundField DataField="Id" HeaderText="Id" />
+                    <asp:BoundField DataField="UserId" HeaderText="User Id" />
+                    <asp:BoundField DataField="roleId" HeaderText="Role Id" />
+                </Columns>
+            </asp:GridView>
+        </div>
+
         <asp:Button ID="btnSubmit" runat="server" class="btn btn-primary  btn-sm" Text="Submit" OnClick="btnSave_Click" />
     </div>
 </asp:Content>
