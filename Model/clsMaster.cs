@@ -35,10 +35,10 @@ namespace Web_Application_Registration.DAL
             return clsBal.GetCityList(state_Id);
         }
 
-        public DataTable BindDrowDownRole()
-        {
-            clsBal objbalRole = new clsBal();
-            return objbalRole.BindDrowDownRole();
-        }
+        //public DataTable BindDrowDownRole()
+        //{
+        //    clsBal objbalRole = new clsBal();
+        //    return objbalRole.BindDrowDownRole();
+        //}
     }
 }

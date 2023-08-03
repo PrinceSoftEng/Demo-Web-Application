@@ -36,28 +36,51 @@ namespace Web_Application_Registration.Model
             return  objBalUTR.CheckRoleIdExist(objDalUTR);
         }
 
+        public IDataReader LoadCheckedData(clsDalUsertoRole objDalUTR)
+        {
+            clsBalUsertoRole objBalUTR = new clsBalUsertoRole();
+            return objBalUTR.LoadCheckedData(objDalUTR);
+        }
+
+        public DataTable BindGrid()
+        {
+            clsBalUsertoRole objBalUTR = new clsBalUsertoRole();
+            return objBalUTR.BindGrid();
+        }
+        public DataTable BindUserDropdown()
+        {
+            clsBalUsertoRole objBalUTR = new clsBalUsertoRole();
+            return objBalUTR.BindUserDropdown();
+        }
+
+        public DataTable BindRolesRadioButtonList()
+        {
+            clsBalUsertoRole objBalUTR = new clsBalUsertoRole();
+            return objBalUTR.BindRolesRadioButtonList();
+        }
+
+        //public Int32 AddUserToRole(clsDalUsertoRole objDalUTR)
+        //{
+        //    clsBalUsertoRole objBalUTR = new clsBalUsertoRole();
+        //    return objBalUTR.AddUserToRole(objDalUTR);
+        //}
+
         //public List<string> GetAutoComplete(string searchTerm)
         //{
         //    clsBalUsertoRole objBalUTR = new clsBalUsertoRole();
         //    return objBalUTR.GetAutoComplete(searchTerm);
         //}
 
-        public DataTable BindRoleForCheckBoxList()
-        {
-            clsBalUsertoRole objBalUTR = new clsBalUsertoRole();
-            return objBalUTR.BindRoleForCheckBoxList();
-        }
+        //public DataTable BindRoleForCheckBoxList()
+        //{
+        //    clsBalUsertoRole objBalUTR = new clsBalUsertoRole();
+        //    return objBalUTR.BindRoleForCheckBoxList();
+        //}
 
-        public DataTable BindDropDownUserName()
-        {
-            clsBalUsertoRole objBalUTR = new clsBalUsertoRole();
-            return objBalUTR.BindDropDownList();
-        }
-
-        public IDataReader LoadCheckedData(clsDalUsertoRole objDalUTR)
-        {
-            clsBalUsertoRole objBalUTR = new clsBalUsertoRole();
-            return objBalUTR.LoadCheckedData(objDalUTR);
-        }
+        //public DataTable BindDropDownUserName()
+        //{
+        //    clsBalUsertoRole objBalUTR = new clsBalUsertoRole();
+        //    return objBalUTR.BindDropDownList();
+        //}
     }
 }

@@ -29,7 +29,7 @@
         <div>
             <nav class="navbar navbar-expand-lg navbar-light" style="font-size: large; animation: auto; font-family: cursive; background: linear-gradient(45deg, color(a98-rgb 0.32 0.6 0.55 / 0.37), #a90e3766);">
                 <a class="navbar-brand" href="#" style="font-family: monospace; font-size: xx-large; background: greenyellow;">
-                    <img src="Img/CarSell.jpg" width="50" height="50" />
+                    <img src="Img/CarSell.jpg" runat="server" width="80" height="50" />
                     Angel AutoMobile
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">

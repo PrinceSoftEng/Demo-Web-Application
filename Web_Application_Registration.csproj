@@ -143,15 +143,15 @@
     <Content Include="Img\right-arrow.png" />
     <Content Include="Login.aspx" />
     <Content Include="Registration.aspx" />
-    <Content Include="Roles\CarSell.jpg" />
-    <Content Include="Roles\UserToRoles.aspx" />
+    <Content Include="Admin\CarSell.jpg" />
+    <Content Include="Admin\UserToRoles.aspx" />
     <Content Include="Services.aspx" />
     <Content Include="TermsNCondition.aspx" />
     <Content Include="Viewcars.aspx" />
     <Content Include="Web.config" />
     <Content Include="ForgetPassword.aspx" />
     <Content Include="ResetPasswordLink.aspx" />
-    <Content Include="Roles\RoleMaster.aspx" />
+    <Content Include="Admin\RoleMaster.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AboutUs.aspx.cs">
@@ -209,11 +209,11 @@
       <DependentUpon>Registration.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Roles\UserToRoles.aspx.cs">
+    <Compile Include="Admin\UserToRoles.aspx.cs">
       <DependentUpon>UserToRoles.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Roles\UserToRoles.aspx.designer.cs">
+    <Compile Include="Admin\UserToRoles.aspx.designer.cs">
       <DependentUpon>UserToRoles.aspx</DependentUpon>
     </Compile>
     <Compile Include="Services.aspx.cs">
@@ -258,11 +258,11 @@
     <Compile Include="ResetPasswordLink.aspx.designer.cs">
       <DependentUpon>ResetPasswordLink.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Roles\RoleMaster.aspx.cs">
+    <Compile Include="Admin\RoleMaster.aspx.cs">
       <DependentUpon>RoleMaster.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Roles\RoleMaster.aspx.designer.cs">
+    <Compile Include="Admin\RoleMaster.aspx.designer.cs">
       <DependentUpon>RoleMaster.aspx</DependentUpon>
     </Compile>
   </ItemGroup>

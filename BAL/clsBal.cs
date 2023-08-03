@@ -37,7 +37,7 @@ namespace Web_Application_Registration.BO
             cmd.Parameters.AddWithValue("@IsActive", newUser.isActive);
             cmd.Parameters.AddWithValue("@CreatedBy", newUser.createdBy);
             cmd.Parameters.AddWithValue("@ModifiedBy", newUser.modifiedBy);
-            cmd.Parameters.AddWithValue("@RoleId", newUser.roleId);
+            //cmd.Parameters.AddWithValue("@RoleId", newUser.roleId);
             conn.Open();
             result = cmd.ExecuteNonQuery();
             conn.Close();
@@ -62,25 +62,25 @@ namespace Web_Application_Registration.BO
             }
         }
 
-        public DataTable BindDrowDownRole()
-        {
-            string constring = ConfigurationManager.ConnectionStrings["constr"].ConnectionString;
-            using (SqlConnection con = new SqlConnection(constring))
-            {
-                using (SqlCommand cmd = new SqlCommand("tblRole_spGetRoles", con))
-                {
-                    cmd.CommandType = CommandType.StoredProcedure;
-                    using (SqlDataAdapter sda = new SqlDataAdapter(cmd))
-                    {
-                        using (DataTable dt = new DataTable())
-                        {
-                            sda.Fill(dt);
-                            return dt;
-                        }
-                    }
-                }
-            }
-        }
+        //public DataTable BindDrowDownRole()
+        //{
+        //    string constring = ConfigurationManager.ConnectionStrings["constr"].ConnectionString;
+        //    using (SqlConnection con = new SqlConnection(constring))
+        //    {
+        //        using (SqlCommand cmd = new SqlCommand("tblRole_spGetRoles", con))
+        //        {
+        //            cmd.CommandType = CommandType.StoredProcedure;
+        //            using (SqlDataAdapter sda = new SqlDataAdapter(cmd))
+        //            {
+        //                using (DataTable dt = new DataTable())
+        //                {
+        //                    sda.Fill(dt);
+        //                    return dt;
+        //                }
+        //            }
+        //        }
+        //    }
+        //}
 
         public string GetUserName(string UserName)
         {

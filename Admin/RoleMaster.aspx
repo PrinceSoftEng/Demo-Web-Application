@@ -38,7 +38,7 @@
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <asp:Label ID="lblRoles" runat="server">Select Roles:</asp:Label>
+    <b><asp:Label ID="lblRoles" runat="server">Select Roles:</asp:Label></b>
         <asp:DropDownList ID="ddlRoles" runat="server" Style="margin: 8px; padding: 5px;" AutoPostBack="true" class="btn btn-primary dropdown-toggle" OnSelectedIndexChanged="ddlRole_OnSelectedIndexChanged">
         </asp:DropDownList>
         <br />

@@ -12,32 +12,12 @@ namespace Web_Application_Registration.BAL
 {
     public class clsBalUsertoRole
     {
-        private string constring = ConfigurationManager.ConnectionStrings["constr"].ConnectionString;
-
+        private string constring = ConfigurationManager.ConnectionStrings["constr"].ConnectionString;       
         public DataTable BindGridViewRoles()
         {
             using (SqlConnection con = new SqlConnection(constring))
             {
                 using (SqlCommand cmd = new SqlCommand("Select roleId,roleName from User_tblRole", con))
-                {
-                    cmd.CommandType = CommandType.Text;
-                    using (SqlDataAdapter sda = new SqlDataAdapter(cmd))
-                    {
-                        using (DataTable dt = new DataTable())
-                        {
-                            sda.Fill(dt);
-                            return dt;
-                        }
-                    }
-                }
-            }
-        }
-
-        public DataTable BindDropDownList()
-        {
-            using (SqlConnection con = new SqlConnection(constring))
-            {
-                using (SqlCommand cmd = new SqlCommand("Select Id,UserName from UserRegTable", con))
                 {
                     cmd.CommandType = CommandType.Text;
                     using (SqlDataAdapter sda = new SqlDataAdapter(cmd))
@@ -67,7 +47,7 @@ namespace Web_Application_Registration.BAL
                     return i;
                 }
             }
-        }
+        }        
 
         public Int32 DeleteRole(clsDalUsertoRole objDalUTR)
         {
@@ -105,48 +85,7 @@ namespace Web_Application_Registration.BAL
                 }
             }
         }
-
-        //[WebMethod]
-        //public List<string> GetAutoComplete(string searchTerm)
-        //{
-        //    List<string> roles = new List<string>();
-        //    using (SqlConnection con = new SqlConnection(constring))
-        //    {
-        //        using (SqlCommand cmd = new SqlCommand("Select UserName as Name From UserRegTable where UserName like @SearchTerm +'%'", con))
-        //        {
-        //            cmd.Parameters.AddWithValue("@SearchTerm", searchTerm.Trim());
-        //            con.Open();
-        //            using (SqlDataReader sdr = cmd.ExecuteReader())
-        //            {
-        //                while (sdr.Read())
-        //                {
-        //                    roles.Add(sdr["Name"].ToString());
-        //                }
-        //            }
-        //        }
-        //    }
-        //    return roles;
-        //}
-
-        public DataTable BindRoleForCheckBoxList()
-        {
-            using (SqlConnection con = new SqlConnection(constring))
-            {
-                using (SqlCommand cmd = new SqlCommand("tblRole_spGetRoles", con))
-                {
-                    cmd.CommandType = CommandType.StoredProcedure;
-                    using (SqlDataAdapter sda = new SqlDataAdapter(cmd))
-                    {
-                        using (DataTable dt = new DataTable())
-                        {
-                            sda.Fill(dt);
-                            return dt;
-                        }
-                    }
-                }
-            }
-        }
-
+       
         public IDataReader LoadCheckedData(clsDalUsertoRole objDalUTR)
         {
             using (SqlConnection con = new SqlConnection(constring))
@@ -168,5 +107,59 @@ namespace Web_Application_Registration.BAL
                 }
             }
         }
+
+        public DataTable BindUserDropdown()
+        {
+            using (SqlConnection con = new SqlConnection(constring))
+            {
+                using (SqlCommand cmd = new SqlCommand("Select UserId,UserName from UserRegTable", con))
+                {
+                    using (SqlDataAdapter sda = new SqlDataAdapter(cmd))
+                    {
+                        using (DataTable dt = new DataTable())
+                        {
+                            sda.Fill(dt);
+                            return dt;
+                        }
+                    }
+                }
+            }
+        }
+
+        public DataTable BindRolesRadioButtonList()
+        {
+            using (SqlConnection con = new SqlConnection(constring))
+            {
+                using (SqlCommand cmd = new SqlCommand("Select roleId,roleName from User_tblRole", con))
+                {
+                    using (SqlDataAdapter sda = new SqlDataAdapter(cmd))
+                    {
+                        using (DataTable dt = new DataTable())
+                        {
+                            sda.Fill(dt);
+                            return dt;
+                        }
+                    }
+                }
+            }
+        }
+
+        public DataTable BindGrid()
+        {
+            using (SqlConnection con = new SqlConnection(constring))
+            {
+                using (SqlCommand cmd = new SqlCommand("select * from tblUserToRole", con))
+                {
+                    using (SqlDataAdapter sda = new SqlDataAdapter(cmd))
+                    {
+                        using (DataTable dt = new DataTable())
+                        {
+                            sda.Fill(dt);
+                            return dt;
+                        }
+                    }
+                }
+            }
+        }        
     }
 }

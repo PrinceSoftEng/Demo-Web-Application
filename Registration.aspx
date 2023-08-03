@@ -120,18 +120,9 @@
             <td style="background: Transparent; font-variant: small-caps; font-weight: 600; color: orange;">
                 <asp:Label ID="lblCity" runat="server" Text="City:"></asp:Label><span style="color: red">*</span></td>
             <td style="background: transparent; opacity: 0.70">
-                <asp:DropDownList ID="ddlCity" class="btn btn-primary dropdown-toggle" runat="server" AutoPostBack="true">
+                <asp:DropDownList ID="ddlCity" class="btn btn-primary dropdown-toggle" runat="server">
                 </asp:DropDownList></td>
             <td></td>
-        </tr>
-        <tr>
-            <td style="background: Transparent; font-variant: small-caps; font-weight: 600; color: orange;">
-                <asp:Label ID="Label1" runat="server" Text="Select Roles:"></asp:Label><span style="color: red">*</span></td>
-            <td style="background: transparent; opacity: 0.70">
-                <asp:DropDownList ID="ddlRoles" runat="server" Style="margin: 8px; padding: 5px;" AutoPostBack="true" class="btn btn-primary dropdown-toggle">
-                </asp:DropDownList>
-            <td></td>
-
         </tr>
         <tr style="background: Transparent; font-variant: small-caps; font-weight: 600; color: orange;">
             <td>

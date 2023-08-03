@@ -20,7 +20,6 @@ namespace Web_Application_Registration
     public partial class CS : System.Web.UI.Page
     {
         clsDal objnewuser = new clsDal();
-        clsBal objbal = new clsBal();
         clsMaster objdal = new clsMaster();
 
         protected void Page_Load(object sender, EventArgs e)
@@ -28,22 +27,22 @@ namespace Web_Application_Registration
             if (!this.IsPostBack)
             {
                 this.BindCountry();
-                this.BindRoles();
+                //this.BindRoles();
             }
         }
 
-        private void BindRoles()
-        {
-            DataTable dt = objdal.BindDrowDownRole();
-            if (dt.Rows.Count > 0)
-            {
-                ddlRoles.DataSource = dt;
-                ddlRoles.DataTextField = "roleName";
-                ddlRoles.DataValueField = "roleId";
-                ddlRoles.DataBind();
-            }
-            ddlRoles.Items.Insert(0, new ListItem("-- Select Role --", ""));
-        }
+        //private void BindRoles()
+        //{
+        //    DataTable dt = objdal.BindDrowDownRole();
+        //    if (dt.Rows.Count > 0)
+        //    {
+        //        ddlRoles.DataSource = dt;
+        //        ddlRoles.DataTextField = "roleName";
+        //        ddlRoles.DataValueField = "roleId";
+        //        ddlRoles.DataBind();
+        //    }
+        //    ddlRoles.Items.Insert(0, new ListItem("-- Select Role --", ""));
+        //}
 
         protected void btnCancel_Click(object sender, EventArgs e)
         {
@@ -68,7 +67,7 @@ namespace Web_Application_Registration
             objnewuser.isActive = chkIsActive.Checked ? true : false;
             objnewuser.createdBy = txtUsername.Text.Trim();
             objnewuser.modifiedBy = txtUsername.Text.Trim();
-            objnewuser.roleId = Convert.ToInt32(ddlRoles.SelectedValue);
+            //objnewuser.roleId = Convert.ToInt32(ddlRoles.SelectedValue);
             int retVal = objdal.AddEmployees(objnewuser);
             //SmtpSection smtpSection = (SmtpSection)ConfigurationManager.GetSection("system.net/mailSettings/smtp");
             //MailMessage mailMessage = new MailMessage();
