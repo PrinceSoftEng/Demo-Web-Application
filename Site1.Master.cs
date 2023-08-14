@@ -35,17 +35,7 @@ namespace Web_Application_Registration
                 }
             }
         }
-        
-        protected void OnTermsnCondition(object sender, EventArgs e)
-        {
-            Response.Redirect("TermsNCondition.aspx");
-        }
-        
-        protected void OnContactUs(object sender, EventArgs e)
-        {
-            Response.Redirect("ContactUs.aspx");
-        }
-
+       
         private string GetUserRole()
         {
             if (HttpContext.Current.User.Identity.IsAuthenticated)
@@ -60,6 +50,16 @@ namespace Web_Application_Registration
                 }
             }
             return " ";
+        }
+
+        protected void OnTermsnCondition(object sender, EventArgs e)
+        {
+            Response.Redirect("TermsNCondition.aspx");
+        }
+
+        protected void OnContactUs(object sender, EventArgs e)
+        {
+            Response.Redirect("ContactUs.aspx");
         }
     }
 }
