@@ -68,37 +68,7 @@
                 <a class="navbar-brand" href="#" style="font-family: monospace; font-size: xx-large; background: greenyellow;">
                     <img src="Img/CarSell.jpg" runat="server" width="80" height="50" />
                     Angel AutoMobile
-                </a>
-                <%--<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav mr-auto">
-                        <li class="nav-item active">
-                            <a class="nav-link" style="" href="Home.aspx">Home</a>
-                        </li>
-                        <li class="nav-item active">
-                            <a class="nav-link" style="" href="Services.aspx">Services</a>
-                        </li>
-                        <li class="nav-item active">
-                            <a class="nav-link" style="" href="CarsList.aspx">CarsList</a>
-                        </li>
-                    <li class="nav-item active">
-                            <a class="nav-link" style="" href="Admin">Admin</a>
-                        </li>
-                    </ul>
-                    <ul class="navbar-nav ml-auto">
-                        <li class="nav-item active">
-                            <asp:LinkButton class="nav-link" ID="lnkViewCars" runat="server" OnClick="OnViewCars">View Cars</asp:LinkButton>
-                        </li>
-                        <li class="nav-item active">
-                            <asp:LinkButton class="nav-link" ID="lnkAboutUs" runat="server" OnClick="OnAboutUs">AboutUs</asp:LinkButton>
-                        </li>
-                        <li class="nav-item active">
-                            <asp:LinkButton class="nav-link" ID="lnkLogin" runat="server" OnClick="OnLogin">Login</asp:LinkButton>
-                        </li>
-                    </ul>
-                </div>--%>
+                </a>               
                 <div>
                     <asp:SiteMapDataSource ID="SiteMapDataSource1" runat="server" ShowStartingNode="false" />
                     <asp:Menu ID="Menu1" runat="server" Orientation="Horizontal">

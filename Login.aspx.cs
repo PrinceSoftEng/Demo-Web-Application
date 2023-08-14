@@ -50,6 +50,8 @@ namespace Web_Application_Registration
                         {
                             userid = Convert.ToInt32(sdr["UserId"]);
                             roles = sdr["Roles"].ToString();
+                            ClientScript.RegisterStartupScript(Page.GetType(), "Message", "alert('Login Successful');", true);
+
                             FormsAuthenticationTicket ticket = new FormsAuthenticationTicket(1, txtUsername.Text.Trim(), DateTime.Now, DateTime.Now.AddMinutes(2880), chkRemember.Checked, roles, FormsAuthentication.FormsCookiePath);
                             string hash = FormsAuthentication.Encrypt(ticket);
                             HttpCookie cookie = new HttpCookie(FormsAuthentication.FormsCookieName, hash);
@@ -59,7 +61,6 @@ namespace Web_Application_Registration
                             }
                             Response.Cookies.Add(cookie);
                             Response.Redirect(FormsAuthentication.GetRedirectUrl(txtUsername.Text.Trim(), chkRemember.Checked));
-                            ClientScript.RegisterStartupScript(Page.GetType(), "Message", "alert('Login Successful');window.location='Home.aspx';");
                         }
                         else 
                         {

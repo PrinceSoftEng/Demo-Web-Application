@@ -51,6 +51,24 @@ namespace Web_Application_Registration
         protected global::System.Web.UI.WebControls.TextBox txtPassword;
 
         /// <summary>
+        /// lblRemember control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblRemember;
+
+        /// <summary>
+        /// chkRemember control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CheckBox chkRemember;
+
+        /// <summary>
         /// btnLogin control.
         /// </summary>
         /// <remarks>
@@ -69,15 +87,6 @@ namespace Web_Application_Registration
         protected global::System.Web.UI.WebControls.LinkButton lnkForgetPassword;
 
         /// <summary>
-        /// chkRemember control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox chkRemember;
-
-        /// <summary>
         /// lblLoginUp control.
         /// </summary>
         /// <remarks>
@@ -85,14 +94,5 @@ namespace Web_Application_Registration
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblLoginUp;
-
-        /// <summary>
-        /// lblStatus control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblStatus;
     }
 }
