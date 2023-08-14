@@ -19,6 +19,7 @@ using System.Web.Configuration;
 using Web_Application_Registration.BAL;
 using System.Text;
 using System.Data.SqlTypes;
+using System.Diagnostics;
 
 namespace Web_Application_Registration.Roles
 {
@@ -119,9 +120,28 @@ namespace Web_Application_Registration.Roles
                 }
             }
         }
-
+        //Fro Delete The User To Role
+        protected void btnRemove_Click(Object sender, EventArgs e)
+        {
+            LinkButton removebtn = sender as LinkButton;
+            GridViewRow gvrow = removebtn.NamingContainer as GridViewRow;
+            int id = Convert.ToInt32(gvUTR.DataKeys[gvrow.RowIndex].Value.ToString());
+            string constring = ConfigurationManager.ConnectionStrings["constr"].ConnectionString;
+            using (SqlConnection con = new SqlConnection(constring))
+            {
+                using (SqlCommand cmd = new SqlCommand("Delete From tblUserToRole where ID=@ID", con))
+                {
+                    con.Open();
+                    cmd.Parameters.AddWithValue("@ID",id);
+                    int i = cmd.ExecuteNonQuery();
+                    con.Close();
+                }
+            }
+            this.BindGridViewUTR(); 
+        }
+        
         //Clieck Event to check for Update and Insert in UserToRoleTable 
-        protected void btnSave_Click(object sender, EventArgs e)
+        protected void btnSubmit_Click(object sender, EventArgs e)
         {
             int selectedUserId = Convert.ToInt32(ddlUsers.SelectedValue);
             int selectedRoleId = Convert.ToInt32(rblRoles.SelectedValue);
@@ -187,7 +207,7 @@ namespace Web_Application_Registration.Roles
         }
 
         //Insert Roles In UserRoles table 
-        protected void btnSave_click(object sender, EventArgs e)
+        protected void btnSave_Click(object sender, EventArgs e)
         {
             objDalUTR.roleId = Convert.ToInt32(txtId.Text.Trim());
             objDalUTR.roleName = txtRoleName.Text.Trim();
@@ -196,7 +216,7 @@ namespace Web_Application_Registration.Roles
             {
                 ClientScript.RegisterStartupScript(Page.GetType(), "Message", "alert('Role Inserted Successfully');", true);
                 this.BindGridViewRoles();
-                this.BindRolesRadioButtonList();
+                this.BindRolesRadioButtonList();               
                 this.ClearData();
             }
             else
@@ -206,14 +226,14 @@ namespace Web_Application_Registration.Roles
         }
 
         //Delete role on the roleTable 
-        protected void btnDelete_click(object sender, EventArgs e)
+        protected void btnDelete_Click(object sender, EventArgs e)
         {
             objDalUTR.roleId = Convert.ToInt32(txtId.Text.Trim());
             int retValue = objMastUTR.DeleteRole(objDalUTR);
             if (retValue > 0)
             {
-                this.BindGridViewRoles();
-                this.BindRolesRadioButtonList();
+                this.BindGridViewRoles();                
+                this.BindRolesRadioButtonList();                
                 lblStatus.Visible = false;
                 this.ClearData();
             }

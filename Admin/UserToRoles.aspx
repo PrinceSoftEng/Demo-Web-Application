@@ -15,6 +15,19 @@
         .row {
             padding: 4px;
         }
+
+        .lnkButton {
+            display: block;
+            text-align: center;
+            outline: auto;
+            outline-color: darkorange;
+            background: darkorange;
+            font-size: smaller;
+        }
+
+            .lnkButton:hover {
+                background-color: #e5e124
+            }
     </style>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.8.7/chosen.jquery.min.js"></script>
@@ -31,7 +44,8 @@
                     <td><b>Role Id:</b></td>
                     <td>
                         <asp:TextBox ID="txtId" runat="server" OnTextChanged="txtUserName_TextChange" AutoPostBack="true"></asp:TextBox>
-                        <b><asp:Label ID="lblStatus" runat="server"></asp:Label></b></td>
+                        <b>
+                            <asp:Label ID="lblStatus" runat="server"></asp:Label></b></td>
                 </tr>
                 <tr>
                     <td><b>Role Name:</b></td>
@@ -41,13 +55,13 @@
                 <tr>
                     <td></td>
                     <td>
-                        <asp:Button ID="btnSave" class="btn btn-primary  btn-sm" runat="server" Text="Create Role" OnClick="btnSave_click" />
-                        <asp:Button ID="btnDelete" class="btn btn-danger  btn-sm" runat="server" Text="Delete Role" OnClick="btnDelete_click" />
+                        <asp:Button ID="btnSave" class="btn btn-primary  btn-sm" runat="server" Text="Create Role" OnClick="btnSave_Click" />
+                        <asp:Button ID="btnDelete" class="btn btn-danger  btn-sm" runat="server" Text="Delete Role" OnClick="btnDelete_Click" />
                     </td>
                 </tr>
             </table>
         </div>
-        <div class="column" style="appearance: auto; border-collapse: separate;margin: 40px 0px 0px 20px;">
+        <div class="column" style="appearance: auto; border-collapse: separate; margin: 40px 0px 0px 20px;">
             <asp:GridView ID="gvRoles" runat="server" AutoGenerateColumns="false" Width="100%">
                 <Columns>
                     <asp:BoundField DataField="roleId" HeaderText="Role Id" />
@@ -70,21 +84,36 @@
             <b>
                 <asp:Label ID="lblRoles" runat="server" Text="Select Roles:"></asp:Label></b>
         </div>
-        <div style="float:left; margin: -4px 1000px 0 2px; width: 12%">
+        <div style="float: left; margin: -4px 1000px 0 2px; width: 12%">
             <asp:RadioButtonList ID="rblRoles" runat="server" RepeatColumns="5" RepeatDirection="Vertical"
                 DataTextField="roleName" DataValueField="roleId">
             </asp:RadioButtonList>
         </div>
         <div>
-            <asp:GridView ID="gvUTR" runat="server" AutoGenerateColumns="false">
+            <asp:GridView ID="gvUTR" runat="server" AutoGenerateColumns="false" DataKeyNames="ID">
                 <Columns>
                     <asp:BoundField DataField="Id" HeaderText="Id" />
-                    <asp:BoundField DataField="UserId" HeaderText="User Id" />
-                    <asp:BoundField DataField="roleId" HeaderText="Role Id" />
+                    <asp:TemplateField HeaderText="UserId" Visible="false">
+                        <ItemTemplate>
+                            <asp:Label ID="lblUserId" runat="server" Text='<%#Eval("UserId") %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                    <asp:BoundField DataField="UserName" HeaderText="User Name" />
+                    <asp:TemplateField HeaderText="Role Id" Visible="false">
+                        <ItemTemplate>
+                            <asp:Label ID="lblRoleId" runat="server" Text='<%#Eval("roleId") %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                    <asp:BoundField DataField="roleName" HeaderText="Role Name" />
+                    <asp:TemplateField HeaderText="Action">
+                        <ItemTemplate>
+                            <asp:LinkButton ID="lblRemove" runat="server" CssClass="lnkButton" Text="Remove" 
+                                OnClientClick="return confirm('Are you sure you want to delete this Row?');" OnClick="btnRemove_Click"></asp:LinkButton>
+                        </ItemTemplate>
+                    </asp:TemplateField>
                 </Columns>
             </asp:GridView>
         </div>
-
-        <asp:Button ID="btnSubmit" runat="server" class="btn btn-primary  btn-sm" Text="Submit" OnClick="btnSave_Click" />
+        <asp:Button ID="btnSubmit" runat="server" class="btn btn-primary  btn-sm" Text="Submit" OnClick="btnSubmit_Click" />
     </div>
 </asp:Content>

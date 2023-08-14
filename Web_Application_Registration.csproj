@@ -77,6 +77,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="AboutUs.aspx" />
+    <Content Include="Admin\AdminProfile.aspx" />
     <Content Include="bin\AjaxControlToolkit.dll" />
     <Content Include="bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll" />
     <Content Include="bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml" />
@@ -128,6 +129,7 @@
     <Content Include="Css\AboutUsCss.css" />
     <Content Include="Css\CustomSheet.css" />
     <Content Include="Css\Supercar.jpg" />
+    <Content Include="Global.asax" />
     <Content Include="Home.aspx" />
     <Content Include="Images\car3.jpg" />
     <Content Include="Images\Car4.jpg" />
@@ -147,6 +149,7 @@
     <Content Include="Admin\UserToRoles.aspx" />
     <Content Include="Services.aspx" />
     <Content Include="TermsNCondition.aspx" />
+    <Content Include="UserProfile.aspx" />
     <Content Include="Viewcars.aspx" />
     <Content Include="Web.config" />
     <Content Include="ForgetPassword.aspx" />
@@ -160,6 +163,13 @@
     </Compile>
     <Compile Include="AboutUs.aspx.designer.cs">
       <DependentUpon>AboutUs.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\AdminProfile.aspx.cs">
+      <DependentUpon>AdminProfile.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\AdminProfile.aspx.designer.cs">
+      <DependentUpon>AdminProfile.aspx</DependentUpon>
     </Compile>
     <Compile Include="BAL\clsBalCarList.cs" />
     <Compile Include="BAL\clsBalRoleMaster.cs" />
@@ -183,6 +193,9 @@
     <Compile Include="DAL\clsDalCarList.cs" />
     <Compile Include="DAL\clsDalRoleMaster.cs" />
     <Compile Include="DAL\clsDalUsertoRole.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
     <Compile Include="Model\clsCarListMaster.cs" />
     <Compile Include="Model\clsMaster.cs" />
     <Compile Include="Home.aspx.cs">
@@ -237,6 +250,13 @@
     <Compile Include="TermsNCondition.aspx.designer.cs">
       <DependentUpon>TermsNCondition.aspx</DependentUpon>
     </Compile>
+    <Compile Include="UserProfile.aspx.cs">
+      <DependentUpon>UserProfile.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserProfile.aspx.designer.cs">
+      <DependentUpon>UserProfile.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Viewcars.aspx.cs">
       <DependentUpon>Viewcars.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -279,6 +299,7 @@
     <Content Include="bin\roslyn\vbc.rsp" />
     <Content Include="bin\roslyn\VBCSCompiler.exe.config" />
     <Content Include="bin\Web_Application_Registration.dll.config" />
+    <Content Include="Admin\Web.config" />
     <None Include="packages.config" />
     <Content Include="Site1.Master" />
     <None Include="Web.Debug.config">
@@ -287,6 +308,7 @@
     <None Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
+    <Content Include="Web.sitemap" />
   </ItemGroup>
   <ItemGroup />
   <PropertyGroup>

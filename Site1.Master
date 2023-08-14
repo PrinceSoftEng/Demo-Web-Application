@@ -5,6 +5,8 @@
 <html>
 <head runat="server">
     <title></title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
     <%--bootstrap css--%>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" rel="stylesheet" />
     <%--datatables css--%>
@@ -21,8 +23,43 @@
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"></script>
     <%--bootstrap js--%>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"></script>
-    <asp:ContentPlaceHolder ID="head" runat="server">
-    </asp:ContentPlaceHolder>
+    <style type="text/css">
+        .parent_menu {
+            width: 110px;             
+            text-align: center;
+            height: 30px;
+            margin-right: 5px;
+            color:#000;
+        }
+
+        .child_menu {
+            width: 110px;
+            text-align: center;
+            height: 30px;
+            line-height: 30px;
+            background-color:#e64e4e;
+            color:#45ddd9;
+        }
+
+        .sub_menu {
+            width: 110px;
+            background-color: #000;
+            color: #fff;
+            text-align: center;
+            height: 30px;
+            line-height: 30px;
+            margin-top: 5px;
+        }
+
+        .selected_menu {
+            background-color:#b2e436;
+        }
+
+        .hover_menu {
+            background-color:#cade46;
+            color:#cfdc2b;
+        }
+    </style>
 </head>
 <body>
     <form id="form1" runat="server">
@@ -32,7 +69,7 @@
                     <img src="Img/CarSell.jpg" runat="server" width="80" height="50" />
                     Angel AutoMobile
                 </a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <%--<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -46,18 +83,36 @@
                         <li class="nav-item active">
                             <a class="nav-link" style="" href="CarsList.aspx">CarsList</a>
                         </li>
+                    <li class="nav-item active">
+                            <a class="nav-link" style="" href="Admin">Admin</a>
+                        </li>
                     </ul>
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item active">
-                            <asp:LinkButton class="nav-link" ID="LinkButton4" runat="server" OnClick="OnViewCars">View Cars</asp:LinkButton>
+                            <asp:LinkButton class="nav-link" ID="lnkViewCars" runat="server" OnClick="OnViewCars">View Cars</asp:LinkButton>
                         </li>
                         <li class="nav-item active">
-                            <asp:LinkButton class="nav-link" ID="LinkButton2" runat="server" OnClick="OnAboutUs">AboutUs</asp:LinkButton>
+                            <asp:LinkButton class="nav-link" ID="lnkAboutUs" runat="server" OnClick="OnAboutUs">AboutUs</asp:LinkButton>
                         </li>
                         <li class="nav-item active">
-                            <asp:LinkButton class="nav-link" ID="LinkButton3" runat="server" OnClick="OnLogin">Login</asp:LinkButton>
+                            <asp:LinkButton class="nav-link" ID="lnkLogin" runat="server" OnClick="OnLogin">Login</asp:LinkButton>
                         </li>
                     </ul>
+                </div>--%>
+                <div>
+                    <asp:SiteMapDataSource ID="SiteMapDataSource1" runat="server" ShowStartingNode="false" />
+                    <asp:Menu ID="Menu1" runat="server" Orientation="Horizontal">
+                        <LevelMenuItemStyles>
+                            <asp:MenuItemStyle CssClass="parent_menu" />
+                        </LevelMenuItemStyles>
+                        <LevelSelectedStyles>
+                            <asp:MenuItemStyle CssClass="child_menu" />
+                        </LevelSelectedStyles>
+                        <DynamicMenuItemStyle CssClass="sub_menu" />
+                        <DynamicHoverStyle CssClass="hover_menu" />
+                        <StaticSelectedStyle CssClass="selected_menu" />
+                        <StaticHoverStyle CssClass="hover_menu" />
+                    </asp:Menu>
                 </div>
             </nav>
 
@@ -70,10 +125,10 @@
             <%--<--Main Content placeholder-->--%>
             <!-- Footer -->
             <footer>
-                <div style="background:#e42e92;position:relative" class="container-fluid">
+                <div style="background: #e42e92; position: relative" class="container-fluid">
                     <div id="row">
                         <div class="col-xs-12 col-sm-12 col-md-12 text-center">
-                            <p style="margin-top:0px;margin-bottom:0px;padding:10px;">
+                            <p style="margin-top: 0px; margin-bottom: 0px; padding: 10px;">
                                 <asp:LinkButton class="footerlinks" ID="lblContactUs" runat="server" OnClick="OnContactUs">ContactUs</asp:LinkButton>&nbsp;&nbsp
                                 <asp:LinkButton class="footerlinks" ID="TermsNConditions" runat="server" OnClick="OnTermsnCondition">TermsNConditions</asp:LinkButton>&nbsp;&nbsp
                                 <asp:LinkButton class="footerlinks" ID="lblSocialLinks" runat="server">Social Media Profile</asp:LinkButton>&nbsp;&nbsp
@@ -81,7 +136,7 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <div id="footer2" class="container-fluid">
                     <div class="row">
                         <div class="col-xs-12 col-sm-12 col-md-12 text-center">

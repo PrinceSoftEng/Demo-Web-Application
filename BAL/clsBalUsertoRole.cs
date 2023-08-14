@@ -148,7 +148,7 @@ namespace Web_Application_Registration.BAL
         {
             using (SqlConnection con = new SqlConnection(constring))
             {
-                using (SqlCommand cmd = new SqlCommand("select * from tblUserToRole", con))
+                using (SqlCommand cmd = new SqlCommand("select urt.UserName,utr.ID,utr.UserId,utr.roleId,tr.roleName from UserRegTable urt Join tblUserToRole utr on urt.UserId =utr.UserId Join User_tblRole tr on tr.roleId=utr.roleId", con))
                 {
                     using (SqlDataAdapter sda = new SqlDataAdapter(cmd))
                     {

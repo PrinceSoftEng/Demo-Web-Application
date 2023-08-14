@@ -1,9 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Principal;
 using System.Web;
+using System.Web.Security;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using Web_Application_Registration.Roles;
 
 namespace Web_Application_Registration
 {
@@ -11,43 +14,52 @@ namespace Web_Application_Registration
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (!this.IsPostBack)
+            {
+                string userRole = GetUserRole();
+                Menu1.Items.Clear();
+                SiteMapDataSource1.SiteMapProvider = "SiteMap";
+                Menu1.DataSource = SiteMapDataSource1;
+                Menu1.DataBind();
 
+                foreach (MenuItem menuItem in Menu1.Items)
+                {   
+                    if (HttpContext.Current.User.IsInRole(userRole))
+                    {
+                        menuItem.Enabled = true;
+                    }
+                    else 
+                    {
+                        menuItem.Enabled = false;
+                    }
+                }
+            }
         }
+        
         protected void OnTermsnCondition(object sender, EventArgs e)
-        { 
+        {
             Response.Redirect("TermsNCondition.aspx");
         }
-        protected void OnViewCars(object sender, EventArgs e)
-        {
-            Response.Redirect("Viewcars.aspx");
-        }
-
+        
         protected void OnContactUs(object sender, EventArgs e)
         {
-            Response.Redirect("ContactUs.aspx");   
+            Response.Redirect("ContactUs.aspx");
         }
 
-        protected void OnAboutUs(object sender, EventArgs e)
+        private string GetUserRole()
         {
-            Response.Redirect("AboutUs.aspx");
+            if (HttpContext.Current.User.Identity.IsAuthenticated)
+            {
+                if (HttpContext.Current.User.IsInRole("Admin"))
+                {
+                    return "Admin";
+                }
+                else
+                {
+                    return "User";
+                }
+            }
+            return " ";
         }
-
-        protected void OnSignUp(object sender, EventArgs e)
-        {
-            Response.Redirect("Registration.aspx");    
-        }
-        protected void OnLogin(object sender, EventArgs e)
-        {
-            Response.Redirect("Login.aspx");
-        }
-        //public Label labelUsername
-        //{
-        //    get { return this.labelUsername; }
-        //}
-        //public LinkButton btnlogin
-        //{
-        //    get { return this.btnlogin; }
-        //}
-        
     }
 }
