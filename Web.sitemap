@@ -11,7 +11,5 @@
     <siteMapNode url="~/Viewcars.aspx" title="Viewcars" description="ViewCars Pages" roles="*"></siteMapNode>
     <siteMapNode url="~/AboutUs.aspx" title="AboutUs" description="About Us Pages" roles="*"></siteMapNode>
     <siteMapNode url="~/Login.aspx" title="Logout"  description="Login Pages" roles="*" />
-    <siteMapNode url="~/Registration.aspx" title="Registration" description="Registration" roles="*"></siteMapNode>
-    <siteMapNode url="~/UserProfile.aspx" title="UserProfile"  description="UserProfile Pages" roles="*" />
   </siteMapNode>
 </siteMap>

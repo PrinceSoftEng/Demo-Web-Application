@@ -9,11 +9,11 @@ namespace Web_Application_Registration.DAL
     {
         private int str_ProgramId;
         private int str_RoleId;
-        private byte str_Read;
-        private byte str_Add;
-        private byte str_Update;
-        private byte str_Delete;
-        private byte str_Export;
+        private string str_Read;
+        private string str_Add;
+        private string str_Update;
+        private string str_Delete;
+        private string str_Export;
         private string str_AccessControl;
 
         public int programId
@@ -28,27 +28,27 @@ namespace Web_Application_Registration.DAL
             set { str_RoleId = value; }
         }
 
-        public byte read
+        public string read
         {
             get { return str_Read; }
             set { str_Read = value; }
         }
-        public byte add
+        public string add
         {
             get { return str_Add; }
             set { str_Add = value; }
         }
-        public byte update
+        public string update
         {
             get { return str_Update; }
             set { str_Update = value; }
         }
-        public byte delete
+        public string delete
         {
             get { return str_Delete; }
             set { str_Delete = value; }
         }
-        public byte export
+        public string export
         {
             get { return str_Export; }
             set { str_Export = value; }

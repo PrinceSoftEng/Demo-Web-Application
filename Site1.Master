@@ -71,7 +71,7 @@
                 </a>               
                 <div>
                     <asp:SiteMapDataSource ID="SiteMapDataSource1" runat="server" ShowStartingNode="false" />
-                    <asp:Menu ID="Menu1" runat="server" Orientation="Horizontal">
+                    <asp:Menu ID="Menu1" runat="server" Orientation="Horizontal" Visible="false">
                         <LevelMenuItemStyles>
                             <asp:MenuItemStyle CssClass="parent_menu" />
                         </LevelMenuItemStyles>
@@ -83,6 +83,10 @@
                         <StaticSelectedStyle CssClass="selected_menu" />
                         <StaticHoverStyle CssClass="hover_menu" />
                     </asp:Menu>
+                </div>
+                <div align="left">
+                    <asp:Label ID ="lblMessage" runat="server"  Text="Welcome," Visible="false"></asp:Label>
+                    <asp:Label ID ="lblUserName" runat="server" Text="" Visible="false" OnClick="lblUserName_Click"></asp:Label>
                 </div>
             </nav>
 

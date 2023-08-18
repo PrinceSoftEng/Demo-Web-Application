@@ -10,7 +10,7 @@
             background-image: url(Css/Supercar.jpg);
             background-size: cover;
         }
-    </style>
+    </style>    
     <%--<script type="text/javascript">
         function ValidateLoginCre()
         {
@@ -33,7 +33,7 @@
             <td>
                 <asp:Label ID="lblUsername" runat="server" Text="UserName:"></asp:Label><span style="color: red">*</span></td>
             <td style="background: transparent; opacity: 0.50;">
-                <asp:TextBox ID="txtUsername" runat="server"></asp:TextBox></td>
+                <asp:TextBox ID="txtUsername" placeholder="UserName" runat="server"></asp:TextBox></td>
             <td></td>
         </tr>
         <tr style="background: Transparent; font-variant: small-caps; font-weight: 600; color: orange;">
@@ -41,9 +41,23 @@
                 <asp:Label ID="lblPassword" runat="server" Text="Password:"></asp:Label><span style="color: red">*</span>
             </td>
             <td style="background: transparent; opacity: 0.50">
-                <asp:TextBox ID="txtPassword" runat="server" TextMode="Password"></asp:TextBox>
+                <asp:TextBox ID="txtPassword" runat="server" placeholder="Password" TextMode="Password"></asp:TextBox>
             </td>
-            <td></td>
+            <td style="color:#ffffff">
+                <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+                <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+                    rel="stylesheet" type="text/css" />
+                <span id="toggle_pwd" class="fa fa-fw fa-eye field_icon"></span>
+                <script type="text/javascript">
+                    $(function () {
+                        $("#toggle_pwd").click(function () {
+                            $(this).toggleClass("fa-eye fa-eye-slash");
+                            var type = $(this).hasClass("fa-eye-slash") ? "text" : "password";
+                            $("[id*=txtPassword]").attr("type", type);
+                        });
+                    });
+                </script>
+            </td>
         </tr>
         <tr style="background: Transparent; font-variant: small-caps; font-weight: 600; color: orange;">
             <td>

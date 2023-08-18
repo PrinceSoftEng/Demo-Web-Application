@@ -34,12 +34,14 @@ namespace Web_Application_Registration
         {
             int userid = 0;
             string roles = string.Empty;
+            //string accessControl = string.Empty;
             string mixedPassword = MixStrings(txtUsername.Text, "MAkv2SPBnI99212" + txtPassword.Text);
             string constring = ConfigurationManager.ConnectionStrings["constr"].ConnectionString;
             using (SqlConnection con = new SqlConnection(constring))
             {
-                using (SqlCommand cmd = new SqlCommand("select u.UserId,u.Password,r.roleName as Roles from UserRegTable u inner join User_tblRole r on r.roleId=u.RoleId WHERE Username=@UserName", con))
+                using (SqlCommand cmd = new SqlCommand("UserRegTable_spGetUserByRolenPermission", con))
                 {
+                    cmd.CommandType = CommandType.StoredProcedure;
                     cmd.Parameters.AddWithValue("@UserName", txtUsername.Text.Trim());
                     con.Open();
                     using (SqlDataReader sdr = cmd.ExecuteReader()) 
@@ -50,6 +52,7 @@ namespace Web_Application_Registration
                         {
                             userid = Convert.ToInt32(sdr["UserId"]);
                             roles = sdr["Roles"].ToString();
+                            //accessControl = sdr["accescont"].ToString();
                             ClientScript.RegisterStartupScript(Page.GetType(), "Message", "alert('Login Successful');", true);
 
                             FormsAuthenticationTicket ticket = new FormsAuthenticationTicket(1, txtUsername.Text.Trim(), DateTime.Now, DateTime.Now.AddMinutes(2880), chkRemember.Checked, roles, FormsAuthentication.FormsCookiePath);

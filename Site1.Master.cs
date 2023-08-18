@@ -40,6 +40,10 @@ namespace Web_Application_Registration
         {
             if (HttpContext.Current.User.Identity.IsAuthenticated)
             {
+                lblUserName.Text = HttpContext.Current.User.Identity.Name;
+                lblUserName.Visible = true;
+                lblMessage.Visible = true;
+                Menu1.Visible = true;
                 if (HttpContext.Current.User.IsInRole("Admin"))
                 {
                     return "Admin";
@@ -60,6 +64,11 @@ namespace Web_Application_Registration
         protected void OnContactUs(object sender, EventArgs e)
         {
             Response.Redirect("ContactUs.aspx");
+        }
+
+        protected void lblUserName_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("UserProfile.aspx");
         }
     }
 }
