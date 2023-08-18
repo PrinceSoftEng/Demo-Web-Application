@@ -43,6 +43,7 @@ namespace Web_Application_Registration
                 lblUserName.Text = HttpContext.Current.User.Identity.Name;
                 lblUserName.Visible = true;
                 lblMessage.Visible = true;
+                lnkUserName.Visible = true;
                 Menu1.Visible = true;
                 if (HttpContext.Current.User.IsInRole("Admin"))
                 {

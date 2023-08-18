@@ -60,6 +60,15 @@ namespace Web_Application_Registration
         protected global::System.Web.UI.WebControls.Label lblMessage;
 
         /// <summary>
+        /// lnkUserName control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton lnkUserName;
+
+        /// <summary>
         /// lblUserName control.
         /// </summary>
         /// <remarks>
