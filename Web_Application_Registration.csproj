@@ -77,7 +77,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="AboutUs.aspx" />
-    <Content Include="Admin\AdminProfile.aspx" />
     <Content Include="bin\AjaxControlToolkit.dll" />
     <Content Include="bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll" />
     <Content Include="bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml" />
@@ -140,6 +139,7 @@
     <Content Include="Images\Cars8.jpg" />
     <Content Include="Images\Cras5.png" />
     <Content Include="Images\Supercar.jpg" />
+    <Content Include="Images\UserProfile.png" />
     <Content Include="Img\CarSell.jpg" />
     <Content Include="Img\plusSymbol.png" />
     <Content Include="Img\right-arrow.png" />
@@ -163,13 +163,6 @@
     </Compile>
     <Compile Include="AboutUs.aspx.designer.cs">
       <DependentUpon>AboutUs.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Admin\AdminProfile.aspx.cs">
-      <DependentUpon>AdminProfile.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Admin\AdminProfile.aspx.designer.cs">
-      <DependentUpon>AdminProfile.aspx</DependentUpon>
     </Compile>
     <Compile Include="BAL\clsBalCarList.cs" />
     <Compile Include="BAL\clsBalRoleMaster.cs" />

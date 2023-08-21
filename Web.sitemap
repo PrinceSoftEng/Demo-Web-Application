@@ -1,15 +1,15 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <siteMap xmlns="http://schemas.microsoft.com/AspNet/SiteMap-File-1.0" >
   <siteMapNode url="" title="Home"  description="" roles="*">
-    <siteMapNode url="~/Home.aspx" title="Home"  description="Home Page" roles="*"/>
+    <siteMapNode url="~/Home.aspx" title="Home"  description="Home Page" roles="Admin,*"/>
     <siteMapNode title="Admin"  description="Admin Management Page"  roles="Admin">
       <siteMapNode url="~/Admin/RoleMaster.aspx" title="Role Master" description="Role Master Page"></siteMapNode>
-      <siteMapNode url="~/Admin/UserToRole.aspx" title="UTR Master" description="User to Role Page"></siteMapNode>
+      <siteMapNode url="~/Admin/UserToRoles.aspx" title="UTR Master" description="User to Role Page"></siteMapNode>
     </siteMapNode>
-    <siteMapNode url="~/CarsList.aspx" title="CarList" description="Car List Pages" roles="*"></siteMapNode>
-    <siteMapNode url="~/Services.aspx" title="Services" description="Services Pages" roles="*"></siteMapNode>
-    <siteMapNode url="~/Viewcars.aspx" title="Viewcars" description="ViewCars Pages" roles="*"></siteMapNode>
-    <siteMapNode url="~/AboutUs.aspx" title="AboutUs" description="About Us Pages" roles="*"></siteMapNode>
-    <siteMapNode url="~/Login.aspx" title="Logout"  description="Login Pages" roles="*" />
+    <siteMapNode url="~/CarsList.aspx" title="CarList" description="Car List Pages" roles="Admin,*"></siteMapNode>
+    <siteMapNode url="~/Services.aspx" title="Services" description="Services Pages" roles="Admin,*"></siteMapNode>
+    <siteMapNode url="~/Viewcars.aspx" title="Viewcars" description="ViewCars Pages" roles="Admin,*"></siteMapNode>
+    <siteMapNode url="~/AboutUs.aspx" title="AboutUs" description="About Us Pages" roles="Admin,*"></siteMapNode>
+    <siteMapNode url="~/Login.aspx" title="Logout"  description="Login Pages" roles="Admin,*" />
   </siteMapNode>
 </siteMap>

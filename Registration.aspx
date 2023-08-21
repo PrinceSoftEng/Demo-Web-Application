@@ -128,8 +128,21 @@
             <td>
                 <asp:Label ID="lblPassword" runat="server" Text="Password:"></asp:Label><span style="color: red">*</span>
             </td>
-            <td style="background: transparent; opacity: 0.50">
+            <td style="background: transparent; opacity: 0.50;color:#ffffff">
                 <asp:TextBox ID="txtPassword" runat="server" TextMode="Password"></asp:TextBox>
+                 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+                <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+                    rel="stylesheet" type="text/css" />
+                <span id="toggle_pwd" class="fa fa-fw fa-eye field_icon"></span>
+                <script type="text/javascript">
+                    $(function () {
+                        $("#toggle_pwd").click(function () {
+                            $(this).toggleClass("fa-eye fa-eye-slash");
+                            var type = $(this).hasClass("fa-eye-slash") ? "text" : "password";
+                            $("[id*=txtPassword]").attr("type", type);
+                        });
+                    });
+                </script>
             </td>
             <td>
                 <asp:RegularExpressionValidator runat="server" ErrorMessage="Enter Strong Password Using Upper,lower,Number,Special Characters and ranges between 8 to 15 "

@@ -34,7 +34,7 @@ namespace Web_Application_Registration
         {
             int userid = 0;
             string roles = string.Empty;
-            //string accessControl = string.Empty;
+            string accessControl = string.Empty;
             string mixedPassword = MixStrings(txtUsername.Text, "MAkv2SPBnI99212" + txtPassword.Text);
             string constring = ConfigurationManager.ConnectionStrings["constr"].ConnectionString;
             using (SqlConnection con = new SqlConnection(constring))
